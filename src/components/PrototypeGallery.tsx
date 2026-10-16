@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { PROTOTYPES_DATA, PrototypeItem } from '../data/portfolioData';
 import { Maximize2, X, Clock, Sparkles, Layers, Info } from 'lucide-react';
+import { soundscape } from '../utils/soundscape';
 
 export const PrototypeGallery: React.FC = () => {
   const [filter, setFilter] = useState<'All' | 'Apparel' | 'Heritage Textiles'>('All');
@@ -29,7 +30,10 @@ export const PrototypeGallery: React.FC = () => {
           {(['All', 'Apparel', 'Heritage Textiles'] as const).map(cat => (
             <button
               key={cat}
-              onClick={() => setFilter(cat)}
+              onClick={() => {
+                soundscape.playPaperSlide();
+                setFilter(cat);
+              }}
               className={`px-3 py-1.5 text-xs font-medium rounded-md transition-all ${
                 filter === cat ? 'bg-white text-stone-900 shadow-xs' : 'text-stone-600 hover:text-stone-900'
               }`}
@@ -53,6 +57,9 @@ export const PrototypeGallery: React.FC = () => {
                 src={proto.image}
                 alt={proto.name}
                 referrerPolicy="no-referrer"
+                onError={(e) => {
+                  e.currentTarget.src = '/images/prototype_apparel_collection_1792131008704.jpg';
+                }}
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-102"
               />
 
@@ -63,7 +70,10 @@ export const PrototypeGallery: React.FC = () => {
 
               {/* Lightbox Trigger */}
               <button
-                onClick={() => setSelectedProto(proto)}
+                onClick={() => {
+                  soundscape.playBronzeChime();
+                  setSelectedProto(proto);
+                }}
                 aria-label="Inspect prototype in lightbox"
                 className="absolute top-3 right-3 p-2 bg-black/60 hover:bg-black/80 backdrop-blur-md text-white rounded-lg transition-colors"
               >
@@ -77,6 +87,7 @@ export const PrototypeGallery: React.FC = () => {
                   className="absolute transform -translate-x-1/2 -translate-y-1/2 group/hs cursor-pointer"
                   style={{ left: `${hs.x}%`, top: `${hs.y}%` }}
                   onClick={() => {
+                    soundscape.playBronzeChime();
                     setSelectedProto(proto);
                     setActiveHotspotIdx(hIdx);
                   }}
@@ -156,6 +167,9 @@ export const PrototypeGallery: React.FC = () => {
                 src={selectedProto.image}
                 alt={selectedProto.name}
                 referrerPolicy="no-referrer"
+                onError={(e) => {
+                  e.currentTarget.src = '/images/prototype_apparel_collection_1792131008704.jpg';
+                }}
                 className="w-full h-full object-cover"
               />
               <div className="absolute top-3 left-3 bg-black/60 text-white text-xs font-mono px-3 py-1 rounded">

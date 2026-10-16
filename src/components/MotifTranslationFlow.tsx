@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Camera, PenTool, Sliders, Stamp, Check, RotateCcw } from 'lucide-react';
+import { soundscape } from '../utils/soundscape';
 
 interface TranslationStep {
   step: number;
@@ -55,11 +56,13 @@ export const MotifTranslationFlow: React.FC = () => {
     const x = ((e.clientX - rect.left) / rect.width) * 100;
     const y = ((e.clientY - rect.top) / rect.height) * 100;
     if (stampedPositions.length < 8) {
+      soundscape.playWoodBlockTap(true);
       setStampedPositions([...stampedPositions, { x, y }]);
     }
   };
 
   const handleClearStamps = () => {
+    soundscape.playPaperSlide();
     setStampedPositions([]);
   };
 
@@ -83,7 +86,10 @@ export const MotifTranslationFlow: React.FC = () => {
         {STEPS.map((s) => (
           <button
             key={s.step}
-            onClick={() => setActiveStep(s.step)}
+            onClick={() => {
+              soundscape.playPaperSlide();
+              setActiveStep(s.step);
+            }}
             className={`text-left p-4 rounded-xl border transition-all ${
               activeStep === s.step
                 ? 'border-[#A44226] bg-[#A44226]/5 shadow-xs'

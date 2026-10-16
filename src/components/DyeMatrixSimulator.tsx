@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { DYE_MATRIX_DATA } from '../data/portfolioData';
 import { FlaskConical, Sparkles, RefreshCw, Layers } from 'lucide-react';
+import { soundscape } from '../utils/soundscape';
 
 export const DyeMatrixSimulator: React.FC = () => {
   const [selectedMaterialIdx, setSelectedMaterialIdx] = useState<number>(0);
@@ -64,7 +65,10 @@ export const DyeMatrixSimulator: React.FC = () => {
             {DYE_MATRIX_DATA.map((item, idx) => (
               <button
                 key={item.rawMaterial}
-                onClick={() => setSelectedMaterialIdx(idx)}
+                onClick={() => {
+                  soundscape.playDropletSound();
+                  setSelectedMaterialIdx(idx);
+                }}
                 className={`w-full text-left p-3.5 rounded-xl border transition-all flex items-center justify-between ${
                   selectedMaterialIdx === idx
                     ? 'border-[#A44226] bg-[#A44226]/5 shadow-xs'
@@ -98,7 +102,10 @@ export const DyeMatrixSimulator: React.FC = () => {
             </label>
             <div className="grid grid-cols-3 gap-2">
               <button
-                onClick={() => setActiveMordant('alum')}
+                onClick={() => {
+                  soundscape.playDropletSound();
+                  setActiveMordant('alum');
+                }}
                 className={`p-3 text-left rounded-xl border text-xs font-medium transition-all ${
                   activeMordant === 'alum'
                     ? 'border-[#A44226] bg-[#A44226] text-white shadow-xs'
@@ -110,7 +117,10 @@ export const DyeMatrixSimulator: React.FC = () => {
               </button>
 
               <button
-                onClick={() => setActiveMordant('syahi')}
+                onClick={() => {
+                  soundscape.playDropletSound();
+                  setActiveMordant('syahi');
+                }}
                 className={`p-3 text-left rounded-xl border text-xs font-medium transition-all ${
                   activeMordant === 'syahi'
                     ? 'border-[#2B2625] bg-[#2B2625] text-white shadow-xs'
@@ -122,7 +132,10 @@ export const DyeMatrixSimulator: React.FC = () => {
               </button>
 
               <button
-                onClick={() => setActiveMordant('raw')}
+                onClick={() => {
+                  soundscape.playDropletSound();
+                  setActiveMordant('raw');
+                }}
                 className={`p-3 text-left rounded-xl border text-xs font-medium transition-all ${
                   activeMordant === 'raw'
                     ? 'border-stone-400 bg-stone-200 text-stone-900 shadow-xs'

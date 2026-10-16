@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Layers, Thermometer, Droplets, Flame, CheckCircle2 } from 'lucide-react';
+import { soundscape } from '../utils/soundscape';
 
 interface TextileLayer {
   id: number;
@@ -143,7 +144,10 @@ export const LayerVisualizer: React.FC = () => {
                 return (
                   <div
                     key={layer.id}
-                    onClick={() => setActiveLayerId(layer.id)}
+                    onClick={() => {
+                      soundscape.playBronzeChime();
+                      setActiveLayerId(layer.id);
+                    }}
                     className={`absolute inset-0 rounded-xl cursor-pointer transition-all duration-500 border ${
                       isSelected
                         ? 'ring-2 ring-[#A44226] ring-offset-2 ring-offset-stone-100 shadow-xl'

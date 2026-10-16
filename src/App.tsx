@@ -13,7 +13,9 @@ import { BeforeAfterSlider } from './components/BeforeAfterSlider';
 import { PrototypeGallery } from './components/PrototypeGallery';
 import { HeritageMap } from './components/HeritageMap';
 import { LabEcoMetrics } from './components/LabEcoMetrics';
+import { AudioPanel } from './components/AudioPanel';
 import { soundscape } from './utils/soundscape';
+import { IMAGES } from './data/portfolioData';
 import {
   Presentation,
   BookOpen,
@@ -115,9 +117,12 @@ export default function App() {
               <div className="lg:col-span-5 flex flex-col">
                 <div className="relative aspect-4/3 lg:aspect-auto lg:h-full rounded-2xl overflow-hidden border border-stone-200 shadow-md bg-stone-100 min-h-[360px]">
                   <img
-                    src="/src/assets/images/hero_bhairavgarh_batik_1792131005667.jpg"
+                    src={IMAGES.hero}
                     alt="Authentic Bhairavgarh Batik textile with madder red dye and prehistoric dancing motifs"
                     referrerPolicy="no-referrer"
+                    onError={(e) => {
+                      e.currentTarget.src = '/images/hero_bhairavgarh_batik_1792131005667.jpg';
+                    }}
                     className="w-full h-full object-cover"
                   />
                   <div className="absolute bottom-3 left-3 right-3 bg-black/60 backdrop-blur-md p-3 rounded-xl border border-white/10 text-white flex items-center justify-between">
@@ -187,13 +192,61 @@ export default function App() {
               </p>
             </div>
 
+            {/* Visual Sequence: 1. Ujjain Kshipra River, 2. Mahakaal Temple */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {/* First Image: Ujjain Kshipra River */}
+              <div className="space-y-2">
+                <div className="relative aspect-16/10 rounded-2xl overflow-hidden border border-stone-200 shadow-md bg-stone-100 group">
+                  <img
+                    src={IMAGES.kshipra}
+                    alt="Sacred Kshipra River in Ujjain at golden hour sunrise with historic stone ghats"
+                    referrerPolicy="no-referrer"
+                    onError={(e) => {
+                      e.currentTarget.src = '/images/ujjain_kshipra_river_1792132450811.jpg';
+                    }}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-102"
+                  />
+                  <div className="absolute top-3 left-3 bg-black/60 backdrop-blur-md px-3 py-1 rounded text-xs font-mono text-white/95">
+                    01 · Sacred Kshipra River, Ujjain
+                  </div>
+                </div>
+                <div className="text-xs text-stone-600 leading-relaxed font-sans px-1">
+                  <span className="font-semibold text-stone-900 font-serif">The Mineral Hydrology:</span> The sacred Kshipra River's alkaline calcium-rich water profile provides the natural fixing catalyst that bonds plant alizarin and tannins permanently to cotton fibers.
+                </div>
+              </div>
+
+              {/* Second Image: Mahakaal Temple */}
+              <div className="space-y-2">
+                <div className="relative aspect-16/10 rounded-2xl overflow-hidden border border-stone-200 shadow-md bg-stone-100 group">
+                  <img
+                    src={IMAGES.mahakaal}
+                    alt="Historic sacred Mahakaleshwar Temple in Ujjain at dawn"
+                    referrerPolicy="no-referrer"
+                    onError={(e) => {
+                      e.currentTarget.src = '/images/ujjain_mahakaal_temple_1792132451019.jpg';
+                    }}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-102"
+                  />
+                  <div className="absolute top-3 left-3 bg-black/60 backdrop-blur-md px-3 py-1 rounded text-xs font-mono text-white/95">
+                    02 · Shri Mahakaleshwar Temple (Mahakaal)
+                  </div>
+                </div>
+                <div className="text-xs text-stone-600 leading-relaxed font-sans px-1">
+                  <span className="font-semibold text-stone-900 font-serif">Circular Heritage:</span> Ujjain’s spiritual heart. Daily floral garland offerings (sacred marigolds & blanket flowers) are diverted from river waste and upcycled into solar yellow and warm ochre dye baths.
+                </div>
+              </div>
+            </div>
+
             {/* Artisan Fieldwork Imagery & Quote */}
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-white border border-stone-200 rounded-2xl p-6 lg:p-8">
               <div className="lg:col-span-5 relative aspect-4/3 rounded-xl overflow-hidden bg-stone-100 border border-stone-200">
                 <img
-                  src="/src/assets/images/chhipa_artisan_woodblock_1792131007154.jpg"
+                  src={IMAGES.artisan}
                   alt="Chhipa master artisan stamping molten wax onto handloom fabric"
                   referrerPolicy="no-referrer"
+                  onError={(e) => {
+                    e.currentTarget.src = '/images/chhipa_artisan_woodblock_1792131007154.jpg';
+                  }}
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -338,9 +391,12 @@ export default function App() {
             {/* Botanical Pigments Photo Banner */}
             <div className="relative aspect-16/9 md:aspect-21/9 rounded-2xl overflow-hidden border border-stone-200 shadow-md">
               <img
-                src="/src/assets/images/botanical_dyes_pigments_1792131008735.jpg"
+                src={IMAGES.dyes}
                 alt="Clay terracotta bowls with raw organic dye pigments: madder, marigold, indigo, babool bark, and iron syahi"
                 referrerPolicy="no-referrer"
+                onError={(e) => {
+                  e.currentTarget.src = '/images/botanical_dyes_pigments_1792131008735.jpg';
+                }}
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent flex items-end p-6 sm:p-8">
@@ -507,10 +563,16 @@ export default function App() {
           </div>
 
           <div>
-            © 2026 Naiya Patel · All research & design rights reserved
+            © 2026 Rupal Joshi · All research & design rights reserved
           </div>
         </div>
       </footer>
+
+      {/* Floating Audio Console */}
+      <AudioPanel
+        isAudioActive={isAudioActive}
+        onAudioStateChange={(active) => setIsAudioActive(active)}
+      />
 
       {/* Executive Summary Modal */}
       {showDossierModal && (
@@ -544,7 +606,7 @@ export default function App() {
                 <strong>Project Title:</strong> The Revival of Bhairavgarh Batik: Integrating 400 years of Chhipa mastery, natural plant chemistry, and India's oldest prehistoric design vocabulary into a sustainable future.
               </p>
               <p>
-                <strong>Author / Designer:</strong> Naiya Patel (Creative Portfolio & Case Study)
+                <strong>Author / Designer:</strong> Rupal Joshi (Creative Portfolio & Case Study)
               </p>
               <p>
                 <strong>Core Problem:</strong> A 400-year craft cluster faced ecological destruction (synthetic azo effluent polluting the sacred Kshipra River) and commercial erasure (competing with generic Indonesian-style machine prints for $2.50/day).

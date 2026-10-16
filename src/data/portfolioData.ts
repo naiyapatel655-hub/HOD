@@ -1,3 +1,21 @@
+import heroBhairavgarhImg from '../assets/images/hero_bhairavgarh_batik_1792131005667.jpg';
+import chhipaArtisanImg from '../assets/images/chhipa_artisan_woodblock_1792131007154.jpg';
+import botanicalDyesImg from '../assets/images/botanical_dyes_pigments_1792131008735.jpg';
+import prototypeApparelImg from '../assets/images/prototype_apparel_collection_1792131008704.jpg';
+import heritageTextilesImg from '../assets/images/heritage_textiles_saree_1792131008791.jpg';
+import ujjainKshipraImg from '../assets/images/ujjain_kshipra_river_1792132450811.jpg';
+import ujjainMahakaalImg from '../assets/images/ujjain_mahakaal_temple_1792132451019.jpg';
+
+export const IMAGES = {
+  hero: heroBhairavgarhImg,
+  artisan: chhipaArtisanImg,
+  dyes: botanicalDyesImg,
+  apparel: prototypeApparelImg,
+  saree: heritageTextilesImg,
+  kshipra: ujjainKshipraImg,
+  mahakaal: ujjainMahakaalImg,
+};
+
 export interface SlideData {
   id: number;
   title: string;
@@ -20,7 +38,7 @@ export const SLIDES_DATA: SlideData[] = [
     content: "A master creative research project investigating the ecological restoration and brand repositioning of traditional wax-resist batik textiles in Bhairavgarh, Ujjain, Madhya Pradesh.",
     keyInsight: "By replacing toxic azo synthetic chemistry with 10 indigenous plant extractions and activating the 30,000-year-old Bhimbetka visual lexicon, the craft transitions from a low-margin commodity to a globally sought luxury heritage artform.",
     speakerNotes: "Welcome everyone. Today I'm presenting 'The Revival of Bhairavgarh Batik'—a design and chemistry research initiative addressing the dual crisis of ecological degradation and identity loss in one of Central India's most historic textile clusters.",
-    image: "/src/assets/images/hero_bhairavgarh_batik_1792131005667.jpg",
+    image: IMAGES.hero,
     accentColor: "#A44226"
   },
   {
@@ -31,7 +49,7 @@ export const SLIDES_DATA: SlideData[] = [
     content: "The Chhipa community arrived in Bhairavgarh during the Mughal era, drawn by the Kshipra River's unique alkaline mineral composition. They established an enduring legacy of mordant and iron-acetate printing, producing culturally vital textiles like the Lugda (traditional veil) and Chadar (bedsheet) using a rich palette of madder red, indigo blue, and syahi (iron) black.",
     keyInsight: "The mineral density of the Kshipra River naturally acted as an optimal fixing catalyst, bonding botanical tannins to cellulose fibers for centuries.",
     speakerNotes: "Slide 2 contextualizes the deep heritage: the Chhipa printers weren't just decorative artists; they were empirical mineral chemists who settled specifically along the Kshipra river for its unique water profile.",
-    image: "/src/assets/images/chhipa_artisan_woodblock_1792131007154.jpg",
+    image: IMAGES.kshipra,
     accentColor: "#A3704C"
   },
   {
@@ -63,7 +81,7 @@ export const SLIDES_DATA: SlideData[] = [
     content: "Authentic revival cannot be dictated from an external academic lab. Through extensive fieldwork with over 40 master Chhipa families, the revival framework was built directly upon inherited muscle memory and tool mastery.\n\nKey Insight: The breakthrough was abandoning brittle commercial paraffin blends in favor of 100% pure unbleached beeswax applied at precisely 55–60.5°C. This prevents the wax from flaking off handloom cotton while granting master printers micro-control over the batik's signature crackle vein effect.",
     keyInsight: "Pure beeswax maintains molecular elasticity at ambient room temperatures, creating refined, intentional crackle networks instead of uncontrolled shatter.",
     speakerNotes: "Notice our fieldwork photos: hand-stylus tjanting precision alongside carved wooden blocks, and calibrating beeswax melting pots to 55-60.5 degrees Celsius.",
-    image: "/src/assets/images/chhipa_artisan_woodblock_1792131007154.jpg",
+    image: IMAGES.artisan,
     accentColor: "#A3704C"
   },
   {
@@ -75,7 +93,7 @@ export const SLIDES_DATA: SlideData[] = [
     content: "Moving away from toxic synthetic chemicals required matching Bhairavgarh's historic aesthetic with high-performing, locally harvested organic chemistry.\n\nThe foundational 10-dye spectrum includes:\n• Madder Root (Rubia cordifolia) for warm terracotta and crimson\n• Marigold Petals (Tagetes) for mustard and vibrant warm ochre\n• Natural Indigo (Indigofera tinctoria) for rich cobalt and midnight navy\n• Babool Bark (Acacia nilotica) & Pomegranate Peel (Punica granatum) for dense tannins and earthy tones.",
     keyInsight: "Every raw botanical dye source is renewable, 100% biodegradable, and locally accessible within Madhya Pradesh and neighboring agricultural regions.",
     speakerNotes: "This slide details the botanical palette: raw roots, dried flower petals, fermenting vats, and tannin-rich tree barks arranged in traditional clay bowls.",
-    image: "/src/assets/images/botanical_dyes_pigments_1792131008735.jpg",
+    image: IMAGES.dyes,
     accentColor: "#B91C1C"
   },
   {
@@ -108,7 +126,7 @@ export const SLIDES_DATA: SlideData[] = [
     content: "To escape generic commodity competition, the revival required a design identity uniquely rooted in Madhya Pradesh. Located just a short distance from the cluster lies the UNESCO World Heritage site of Bhimbetka—home to over 750 rock shelters dating back 30,000 years to the Upper Paleolithic.\n\nBy ethically adapting these prehistoric motifs—dynamic stick-figure communal dancing rituals, hunters with ceremonial spears, and magnificent wild bison and deer—Bhairavgarh Batik establishes a proprietary aesthetic signature that no synthetic mass manufacturer can copy.",
     keyInsight: "Bhimbetka motifs are not just decorative patterns; they represent humanity's earliest documented communal creative expression, right in the artisans' home state.",
     speakerNotes: "Slide 9 highlights the artistic breakthrough: connecting Chhipa wax-resist craftsmanship with Bhimbetka's 30,000-year-old rock shelter pictographs.",
-    image: "/src/assets/images/hero_bhairavgarh_batik_1792131005667.jpg",
+    image: IMAGES.hero,
     accentColor: "#9A3412"
   },
   {
@@ -140,7 +158,7 @@ export const SLIDES_DATA: SlideData[] = [
     content: "The apparel collection translates the research into contemporary, high-value fashion:\n\n• Prototype 01 — Terracotta Kaftan: Madder root dye over alum mordant on flowing handloom cotton-silk. Features stylized prehistoric dancing figures along the hem and sleeves, framed by organic crackle veining.\n\n• Prototype 02 — Warm Ochre Tailored Jacket: Marigold and blanket flower dye over alum mordant on structured handloom cotton. Accented with wild animal cave forms (Bison and Deer) and subtle crackle borders.",
     keyInsight: "Positioning the textiles as high-end contemporary resort wear unlocks 4x to 6x price premiums over traditional commodity dress materials.",
     speakerNotes: "Our apparel prototypes demonstrate how these archaeological motifs and natural hues elevate into modern luxury resort wear and structured jackets.",
-    image: "/src/assets/images/prototype_apparel_collection_1792131008704.jpg",
+    image: IMAGES.apparel,
     accentColor: "#B91C1C"
   },
   {
@@ -151,7 +169,7 @@ export const SLIDES_DATA: SlideData[] = [
     content: "Expanding beyond apparel into luxury home interiors and formal heritage garments:\n\n• Prototype 03 — Charcoal Teak Runner: Fermented Syahi iron liquor printed over an Acacia tannin base, featuring prehistoric geometric rock patterns along the borders.\n\n• Prototype 04 — Chocolate Procession Saree: Catechu resin dye over iron liquor producing rich chocolate tones on handloom mulberry silk, detailed with narrative hunting and procession borders.",
     keyInsight: "Home goods and sarees have longer commercial lifespans and higher collectibility, providing consistent year-round income for artisan families.",
     speakerNotes: "The home and heritage collection includes the Syahi iron runner and the Catechu chocolate silk saree with complex narrative procession borders.",
-    image: "/src/assets/images/heritage_textiles_saree_1792131008791.jpg",
+    image: IMAGES.saree,
     accentColor: "#451A03"
   },
   {
@@ -172,7 +190,7 @@ export const SLIDES_DATA: SlideData[] = [
     content: "The creative and scientific research proves that the revival of Bhairavgarh Batik is environmentally essential, technically viable, and market-ready. The three immediate activation vectors are:\n\n1. Leverage the 2023 Ujjain Batik GI Tag to enforce intellectual property protection against synthetic machine-printed knockoffs.\n2. Empower the Chhipa community—especially women artisans—through transparent direct-to-market pricing and profit sharing.\n3. Scale the regional organic supply chain to meet verified global demand for ethical, culturally authentic textiles.",
     keyInsight: "Sustainable revival is complete when master artisans regain creative autonomy, cultural dignity, and economic sovereignty.",
     speakerNotes: "To conclude: with the 2023 GI Tag in place, women artisans at the center, and a proven natural chemistry pipeline, Bhairavgarh Batik is ready to lead the future of Indian craft.",
-    image: "/src/assets/images/hero_bhairavgarh_batik_1792131005667.jpg",
+    image: IMAGES.hero,
     accentColor: "#7C2D12"
   }
 ];
@@ -358,7 +376,7 @@ export const PROTOTYPES_DATA: PrototypeItem[] = [
     fabricBase: "100% Handloom Cotton-Silk (60s count)",
     description: "Flowing resort silhouette featuring stylized prehistoric dancing figures along the neckline and hem. The distinctive fine veining is produced through controlled thermal cracking of 100% pure beeswax.",
     artisanHours: 42,
-    image: "/src/assets/images/prototype_apparel_collection_1792131008704.jpg",
+    image: IMAGES.apparel,
     hotspots: [
       {
         x: 48,
@@ -390,7 +408,7 @@ export const PROTOTYPES_DATA: PrototypeItem[] = [
     fabricBase: "Structured Handloom Khadi Denim (10 oz)",
     description: "Tailored unstructured jacket with raw white crackle silhouettes of prehistoric bison and deer charging across the breast and pockets. Fully compostable natural buttons and unbleached cotton lining.",
     artisanHours: 36,
-    image: "/src/assets/images/prototype_apparel_collection_1792131008704.jpg",
+    image: IMAGES.apparel,
     hotspots: [
       {
         x: 56,
@@ -416,7 +434,7 @@ export const PROTOTYPES_DATA: PrototypeItem[] = [
     fabricBase: "Handspun Chanderi Cotton-Silk Weave (5.5 meters)",
     description: "A monumental heritage drape bearing a continuous 45cm narrative border depicting hunters, ceremonial drummers, and royal elephants from prehistoric cave walls. The chocolate ground is achieved through a multi-pass iron-tannate reaction.",
     artisanHours: 96,
-    image: "/src/assets/images/heritage_textiles_saree_1792131008791.jpg",
+    image: IMAGES.saree,
     hotspots: [
       {
         x: 45,
@@ -442,7 +460,7 @@ export const PROTOTYPES_DATA: PrototypeItem[] = [
     fabricBase: "Heavy Organic Canvas (320 GSM)",
     description: "Architectural home textile featuring intricate geometric rock engravings and petroglyphic grids. The deep matte charcoal is completely free of synthetic carbon black or coal tar derivatives.",
     artisanHours: 24,
-    image: "/src/assets/images/heritage_textiles_saree_1792131008791.jpg",
+    image: IMAGES.saree,
     hotspots: [
       {
         x: 75,

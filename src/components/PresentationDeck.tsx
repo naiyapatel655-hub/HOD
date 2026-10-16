@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { SLIDES_DATA, SlideData } from '../data/portfolioData';
+import { soundscape } from '../utils/soundscape';
 import {
   ChevronLeft,
   ChevronRight,
@@ -41,12 +42,14 @@ export const PresentationDeck: React.FC<PresentationDeckProps> = ({
 
   const handleNext = () => {
     if (currentSlideId < SLIDES_DATA.length) {
+      soundscape.playPaperSlide();
       setCurrentSlideId(currentSlideId + 1);
     }
   };
 
   const handlePrev = () => {
     if (currentSlideId > 1) {
+      soundscape.playPaperSlide();
       setCurrentSlideId(currentSlideId - 1);
     }
   };
@@ -213,6 +216,9 @@ export const PresentationDeck: React.FC<PresentationDeckProps> = ({
                     src={currentSlide.image}
                     alt={currentSlide.title}
                     referrerPolicy="no-referrer"
+                    onError={(e) => {
+                      e.currentTarget.src = '/images/hero_bhairavgarh_batik_1792131005667.jpg';
+                    }}
                     className="w-full h-full object-cover"
                   />
                 </div>
