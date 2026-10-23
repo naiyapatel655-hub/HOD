@@ -13,27 +13,43 @@ interface POI {
 const POINTS_OF_INTEREST: POI[] = [
   {
     id: 'bhairavgarh',
-    name: 'Bhairavgarh Artisan Cluster',
+    name: 'Bhairavgarh, Ujjain (Kshipra River)',
     category: 'Settlement',
     coords: { x: 42, y: 38 },
-    era: '16th Century Mughal Era',
-    significance: 'Where the Chhipa community originally settled to practice wax-resist and mordant printing, building continuous hereditary workshops for over 400 years.'
+    era: '16th Century Mughal Era / Firoz Shah Tughlaq',
+    significance: "The state's main wax-resist batik centre. Settled by migrant Chhipa printers along the Kshipra river for its alkaline mineral water that naturally fixes plant alizarin."
+  },
+  {
+    id: 'bagh',
+    name: 'Bagh, Dhar (Baghini River)',
+    category: 'Settlement',
+    coords: { x: 28, y: 64 },
+    era: '400 Years Heritage',
+    significance: "Direct block printing with madder and iron (deep red and black). Printers of Bagh learnt the technique of dyeing with alizarin and indigo from the artisans of Bhairavgarh."
+  },
+  {
+    id: 'jawad',
+    name: 'Jawad, Neemuch (Neemuch Region)',
+    category: 'Settlement',
+    coords: { x: 20, y: 25 },
+    era: 'Traditional Dabu Cluster',
+    significance: "Indigo-resist work with clay, gum, and lime paste (Dabu). Printers followed running water to establish craft roots."
   },
   {
     id: 'kshipra',
     name: 'Kshipra River Basin',
     category: 'Hydrology',
     coords: { x: 55, y: 55 },
-    era: 'Timeless Sacred River',
+    era: 'Sacred Alkaline Watercourse',
     significance: 'Its high alkaline mineral density (calcium carbonate & iron traces) serves as a natural mordant fixing bath, bonding plant alizarin and tannins without synthetic chemicals.'
   },
   {
     id: 'ujjain-temple',
-    name: 'Ujjain & Temple Waste Upcycling',
+    name: 'Ujjain & Mahakal Temple',
     category: 'Raw Material',
     coords: { x: 34, y: 58 },
-    era: 'Ancient Avantika',
-    significance: 'Historic cultural center. Today, discarded floral offerings (marigolds, hibiscus) from temples are diverted from river waste to create solar yellow and ochre dye extracts.'
+    era: 'Religious Capital (1000+ Temples)',
+    significance: 'Spiritual heart of Malwa. Daily discarded floral offerings (sacred marigolds) from temples are diverted from river waste to create solar yellow and ochre dye extracts.'
   },
   {
     id: 'bhimbetka',

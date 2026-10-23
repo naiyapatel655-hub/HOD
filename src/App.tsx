@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { TopBar } from './components/TopBar';
 import { PresentationDeck } from './components/PresentationDeck';
 import { DyeMatrixSimulator } from './components/DyeMatrixSimulator';
@@ -15,7 +15,18 @@ import { HeritageMap } from './components/HeritageMap';
 import { LabEcoMetrics } from './components/LabEcoMetrics';
 import { AudioPanel } from './components/AudioPanel';
 import { soundscape } from './utils/soundscape';
-import { IMAGES } from './data/portfolioData';
+import { IMAGES, SLIDES_DATA, COMMUNITY_CLOTHS, TEN_PRODUCTS_DATA, SSM_TEX_LAB_DATA } from './data/portfolioData';
+import {
+  BatikTimeline,
+  CommunityClothsMatrix,
+  SurvivingBlocksCensus,
+  ThreeResistFamilies,
+  BatikSixStepWorkflow,
+  FiveWaxMethods,
+  NeelaLugdaDocumentation,
+  TenProductsShowcase,
+  SSMTexLabCertificate
+} from './components/ThesisCustomViews';
 import {
   Presentation,
   BookOpen,
@@ -26,7 +37,13 @@ import {
   Compass,
   FileDown,
   Layers,
-  Award
+  Award,
+  Download,
+  Calendar,
+  Waves,
+  MapPin,
+  ExternalLink,
+  ChevronRight
 } from 'lucide-react';
 
 export default function App() {
@@ -65,30 +82,30 @@ export default function App() {
       ) : (
         /* Curatorial Editorial Monograph / Case Study View */
         <main className="flex-1 space-y-20 lg:space-y-28 pb-24">
-          {/* Hero Section: Split Column + Full-width KPI Strip */}
+          {/* Hero Section: Split Column + 6-Part Architecture Strip */}
           <section id="top" className="pt-10 md:pt-16 max-w-7xl mx-auto px-6">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
               {/* Left Column: Typographic Hierarchy */}
               <div className="lg:col-span-7 flex flex-col justify-between space-y-6">
                 <div className="space-y-4">
                   <div className="flex items-center gap-2 text-xs font-mono text-stone-500">
-                    <span className="text-[#A44226] font-semibold">Master Creative Research</span>
+                    <span className="text-[#A44226] font-semibold">Doctoral Creative Research</span>
                     <span aria-hidden="true">·</span>
-                    <span>Textile Design & Ecological Chemistry</span>
+                    <span>Rupal Joshi</span>
                     <span aria-hidden="true">·</span>
-                    <span>Ujjain, India</span>
+                    <span>Ujjain, Madhya Pradesh</span>
                   </div>
 
                   <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold text-stone-900 leading-[1.08] tracking-tight text-balance">
-                    The Revival of Bhairavgarh Batik
+                    बाटिक: Every Craft Has a Story
                   </h1>
 
                   <p className="text-lg sm:text-xl font-serif italic text-stone-600 max-w-2xl leading-relaxed">
-                    Integrating 400 years of Chhipa mastery, natural plant chemistry, and India's oldest prehistoric design vocabulary into a sustainable future.
+                    The Heritage, Community Lineage, and Natural Dye Revival of Bhairavgarh Batik.
                   </p>
 
                   <p className="text-sm sm:text-base text-stone-700 leading-relaxed max-w-2xl">
-                    An in-depth design intervention revitalizing Central India's endangered wax-resist batik cluster. By replacing hazardous synthetic azo chemicals with 10 indigenous botanicals and re-centering the 30,000-year-old rock art of Bhimbetka, this research transitions a low-wage commodity piecework economy into an ethical, high-margin cultural powerhouse.
+                    During fieldwork conversations with the hereditary Badwala family—who have practiced batik for generations along Ujjain's sacred Kshipra River—a subtle opportunity emerged in their traditional workflow. This sparked a comprehensive design and scientific intervention: replacing toxic synthetic azo chemicals with 10 indigenous plant dyes, re-centering 30,000-year-old Bhimbetka rock art, and documenting the endangered craft across 6 structured chapters.
                   </p>
                 </div>
 
@@ -99,16 +116,19 @@ export default function App() {
                     className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-[#A44226] text-white text-sm font-medium hover:bg-[#8B351E] transition-all shadow-sm"
                   >
                     <Presentation className="w-4 h-4" />
-                    <span>Launch 15-Slide Presentation Deck</span>
+                    <span>Launch 32-Slide Presentation Deck</span>
                     <ArrowRight className="w-4 h-4 ml-1" />
                   </button>
 
                   <a
-                    href="#chemistry"
-                    className="inline-flex items-center gap-2 px-5 py-3.5 rounded-xl border border-stone-300 bg-white hover:bg-stone-50 text-stone-800 text-sm font-medium transition-all"
+                    href={IMAGES.pdf}
+                    download="Rupal_Joshi_Bhairavgarh_Batik_Presentation.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-5 py-3.5 rounded-xl border border-stone-300 bg-white hover:bg-stone-50 text-stone-800 text-sm font-medium transition-all shadow-xs"
                   >
-                    <Layers className="w-4 h-4 text-[#A44226]" />
-                    <span>Explore Dye-Mordant Matrix</span>
+                    <Download className="w-4 h-4 text-[#A44226]" />
+                    <span>Download Full 45-Page Thesis (PDF)</span>
                   </a>
                 </div>
               </div>
@@ -127,8 +147,8 @@ export default function App() {
                   />
                   <div className="absolute bottom-3 left-3 right-3 bg-black/60 backdrop-blur-md p-3 rounded-xl border border-white/10 text-white flex items-center justify-between">
                     <div>
-                      <div className="text-xs font-serif font-bold">Terracotta Madder Strike-Off</div>
-                      <div className="text-[11px] font-mono text-stone-300">Pure Beeswax Resist · 58.5°C</div>
+                      <div className="text-xs font-serif font-bold">Fieldwork at Badwala Workshop</div>
+                      <div className="text-[11px] font-mono text-stone-300">Bhairavgarh, Ujjain · Rupal Joshi</div>
                     </div>
                     <span className="text-[10px] font-mono bg-white/20 px-2 py-0.5 rounded text-white">
                       Fieldwork Specimen
@@ -138,57 +158,96 @@ export default function App() {
               </div>
             </div>
 
-            {/* Full-width 4-Column KPI Strip below the hero split */}
-            <div className="mt-12 pt-8 border-t border-stone-200 grid grid-cols-2 md:grid-cols-4 gap-6">
+            {/* The Story in Six Parts Overview Strip */}
+            <div className="mt-12 pt-8 border-t border-stone-200">
+              <span className="text-xs font-mono uppercase tracking-widest text-[#A44226] block mb-4">
+                The Journey · Six-Part Research Architecture
+              </span>
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+                {[
+                  { num: 1, title: "About Bhairavgarh", desc: "Printing rivers & village history", slide: 5 },
+                  { num: 2, title: "The Craftsmen", desc: "Chhipa lineage & community cloths", slide: 9 },
+                  { num: 3, title: "History of Batik", desc: "3 Resist families & Tagore 1927", slide: 13 },
+                  { num: 4, title: "How Batik is Made", desc: "Tools, 6 steps & 5 wax methods", slide: 17 },
+                  { num: 5, title: "Reviving the Craft", desc: "10 Dyes, Bhimbetka & lab tests", slide: 24 },
+                  { num: 6, title: "The Road Ahead", desc: "5 Strategic pillars & bibliography", slide: 31 }
+                ].map((part) => (
+                  <button
+                    key={part.num}
+                    onClick={() => handleLaunchPresentation(part.slide)}
+                    className="p-4 rounded-xl border border-stone-200 bg-white hover:border-[#A44226] hover:bg-stone-50 transition-all text-left flex flex-col justify-between group"
+                  >
+                    <div>
+                      <span className="text-xs font-mono font-bold text-[#A44226]">
+                        Part 0{part.num}
+                      </span>
+                      <h4 className="text-xs font-serif font-bold text-stone-900 mt-1 group-hover:text-[#A44226] transition-colors">
+                        {part.title}
+                      </h4>
+                      <p className="text-[11px] text-stone-500 mt-1 line-clamp-2">
+                        {part.desc}
+                      </p>
+                    </div>
+                    <div className="flex items-center gap-1 text-[10px] font-mono text-stone-400 mt-2">
+                      <span>Jump</span>
+                      <ChevronRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
+                    </div>
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Full-width 4-Column KPI Strip */}
+            <div className="mt-8 pt-8 border-t border-stone-200 grid grid-cols-2 md:grid-cols-4 gap-6">
               <div className="space-y-1">
                 <div className="text-3xl lg:text-4xl font-serif font-bold text-stone-900 tabular-nums">
-                  400 Years
+                  ~400 Yrs
                 </div>
                 <div className="text-xs font-mono uppercase tracking-wider text-stone-500">
-                  Chhipa Heritage along Kshipra
+                  Chhipa Heritage on Kshipra
                 </div>
               </div>
 
               <div className="space-y-1">
                 <div className="text-3xl lg:text-4xl font-serif font-bold text-[#A44226] tabular-nums">
-                  10 Extractions
+                  10 Dyes
                 </div>
                 <div className="text-xs font-mono uppercase tracking-wider text-stone-500">
-                  Organic Botanical Dye Palette
+                  Natural Plant & Ferment Palette
                 </div>
               </div>
 
               <div className="space-y-1">
                 <div className="text-3xl lg:text-4xl font-serif font-bold text-stone-900 tabular-nums">
-                  30,000 BCE
+                  8 Castes
                 </div>
                 <div className="text-xs font-mono uppercase tracking-wider text-stone-500">
-                  Bhimbetka Cave Art Vocabulary
+                  Community Identity Cloths
                 </div>
               </div>
 
               <div className="space-y-1">
                 <div className="text-3xl lg:text-4xl font-serif font-bold text-emerald-800 tabular-nums">
-                  2023 GI Tag
+                  Grade 4.0
                 </div>
                 <div className="text-xs font-mono uppercase tracking-wider text-stone-500">
-                  Legal Artisan IP Protection
+                  SSM Tex Lab Fastness Rating
                 </div>
               </div>
             </div>
           </section>
 
-          {/* Section: Historical Provenance & Cartography (#context) */}
+          {/* PART 1: ABOUT BHAIRAVGARH (#part-1) */}
           <section id="context" className="max-w-7xl mx-auto px-6 space-y-10">
             <div className="max-w-3xl space-y-3">
               <span className="text-xs font-mono uppercase tracking-widest text-[#A44226]">
-                Chapter 01 · Historical Provenance
+                Part 01 · About Bhairavgarh
               </span>
               <h2 className="text-3xl lg:text-4xl font-serif font-bold text-stone-900">
-                400 Years of Chhipa Mastery on the Kshipra River
+                A State of Printing Rivers: Kshipra, Baghini & Jawad
               </h2>
-              <p className="text-base text-stone-700 leading-relaxed">
-                The Chhipa printing community arrived in Bhairavgarh during the Mughal era, drawn specifically by the Kshipra River's unique alkaline mineral profile. They established an enduring legacy of mordant and iron-acetate printing, producing culturally vital textiles like the Lugda (traditional veil) and Chadar (bedsheet) using a rich palette of madder red, indigo blue, and syahi (iron) black.
+              <p className="text-base text-stone-700 leading-relaxed font-sans">
+                Madhya Pradesh's textile printing identity is fundamentally shaped by running water. Three historic clusters settled along three specific rivers: Bhairavgarh on the Kshipra (wax-resist batik), Bagh on the Baghini (direct block printing with madder and iron), and Jawad in Neemuch (indigo Dabu mud-resist). Migrant printers moved along these watercourses during the Mughal era and the reign of Firoz Shah Tughlaq.
               </p>
             </div>
 
@@ -211,7 +270,7 @@ export default function App() {
                   </div>
                 </div>
                 <div className="text-xs text-stone-600 leading-relaxed font-sans px-1">
-                  <span className="font-semibold text-stone-900 font-serif">The Mineral Hydrology:</span> The sacred Kshipra River's alkaline calcium-rich water profile provides the natural fixing catalyst that bonds plant alizarin and tannins permanently to cotton fibers.
+                  <span className="font-semibold text-stone-900 font-serif">The Mineral Hydrology:</span> The sacred Kshipra River's alkaline calcium-rich water profile provides the natural fixing catalyst that bonds plant alizarin and tannins permanently to cotton fibers without synthetic chemicals.
                 </div>
               </div>
 
@@ -232,305 +291,214 @@ export default function App() {
                   </div>
                 </div>
                 <div className="text-xs text-stone-600 leading-relaxed font-sans px-1">
-                  <span className="font-semibold text-stone-900 font-serif">Circular Heritage:</span> Ujjain’s spiritual heart. Daily floral garland offerings (sacred marigolds & blanket flowers) are diverted from river waste and upcycled into solar yellow and warm ochre dye baths.
+                  <span className="font-semibold text-stone-900 font-serif">Circular Heritage:</span> Ujjain is the religious capital of Madhya Pradesh with over 1,000 temples and the Mahakal Jyotirlinga. Daily floral garland offerings (sacred marigolds) are diverted from river waste to create solar yellow and warm ochre dye baths.
                 </div>
-              </div>
-            </div>
-
-            {/* Artisan Fieldwork Imagery & Quote */}
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-white border border-stone-200 rounded-2xl p-6 lg:p-8">
-              <div className="lg:col-span-5 relative aspect-4/3 rounded-xl overflow-hidden bg-stone-100 border border-stone-200">
-                <img
-                  src={IMAGES.artisan}
-                  alt="Chhipa master artisan stamping molten wax onto handloom fabric"
-                  referrerPolicy="no-referrer"
-                  onError={(e) => {
-                    e.currentTarget.src = '/images/chhipa_artisan_woodblock_1792131007154.jpg';
-                  }}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-
-              <div className="lg:col-span-7 space-y-4">
-                <div className="text-xs font-mono uppercase tracking-wider text-[#A44226]">
-                  Living Heritage Fieldwork
-                </div>
-                <blockquote className="text-xl sm:text-2xl font-serif italic text-stone-800 leading-snug">
-                  "Revival cannot be dictated from a lab. It must be built directly upon the Chhipa community’s muscle memory, tool mastery, and river intimacy."
-                </blockquote>
-                <p className="text-sm text-stone-600 leading-relaxed">
-                  Through deep participatory workshops with over 40 artisan families, we identified that traditional wax-resist flourished because artisans understood the thermal fluidity of wax and the mineral hardness of their river.
-                </p>
               </div>
             </div>
 
             {/* Embedded Interactive Heritage Map */}
             <HeritageMap />
+
+            {/* Embedded Interactive Timeline (1930s to Today) */}
+            <BatikTimeline />
           </section>
 
-          {/* Section: The Dual Crisis & Before/After Comparison (#crisis) */}
-          <section id="crisis" className="max-w-7xl mx-auto px-6 space-y-10">
+          {/* PART 2: THE CRAFTSMEN (#part-2) */}
+          <section id="three-pillars" className="max-w-7xl mx-auto px-6 space-y-10">
             <div className="max-w-3xl space-y-3">
               <span className="text-xs font-mono uppercase tracking-widest text-[#A44226]">
-                Chapter 02 · Problem Definition
+                Part 02 · The Craftsmen
               </span>
               <h2 className="text-3xl lg:text-4xl font-serif font-bold text-stone-900">
-                The Crisis of Ecology and Generic Branding
+                The Chhipa Lineage & Community Identity Cloths
               </h2>
-              <p className="text-base text-stone-700 leading-relaxed">
-                Industrial pressures forced artisans into synthetic azo dyes—contaminating the Kshipra river with heavy metals and chemical oxygen demand (COD)—while copycat mass prints erased the craft's authentic cultural identity.
+              <p className="text-base text-stone-700 leading-relaxed font-sans">
+                The name <em>Chhipa</em> stems directly from the Hindi verb <em>chhapna</em> ('to print'). Migrating ~400 years ago from Rajasthan and Gujarat, Hindu and Muslim artisan families belonging to the Namdev sect carried tacit printing mastery held purely in memory. They designed custom printed cloths for every local community—from the Anjana Patel's <em>Neela lugda</em> to the Bhil's <em>Bootidar</em>.
               </p>
             </div>
 
-            {/* Embedded Before vs After Slider Component */}
+            {/* Interactive Community Cloths Matrix */}
+            <CommunityClothsMatrix />
+
+            {/* Surviving Blocks Census */}
+            <SurvivingBlocksCensus />
+          </section>
+
+          {/* PART 3: HISTORY OF BATIK (#part-3) */}
+          <section className="max-w-7xl mx-auto px-6 space-y-10">
+            <div className="max-w-3xl space-y-3">
+              <span className="text-xs font-mono uppercase tracking-widest text-[#A44226]">
+                Part 03 · History of Batik
+              </span>
+              <h2 className="text-3xl lg:text-4xl font-serif font-bold text-stone-900">
+                From Ancient Resist Families to Rabindranath Tagore
+              </h2>
+              <p className="text-base text-stone-700 leading-relaxed font-sans">
+                Batik belongs to one of three universal resist families. While Bandhani binds cloth mechanically and Ajrakh applies mineral-mud paste, Batik uses molten wax as a purely physical barrier. In 1927, Rabindranath Tagore visited Java, returning with canting pens and wax specimens to Santiniketan's Kala Bhavana, establishing modern Indian batik that soon diffused to Bhairavgarh.
+              </p>
+            </div>
+
+            {/* Embedded 3 Resist Families Card */}
+            <ThreeResistFamilies />
+
+            {/* Artisan Census 2019 Card */}
+            <div className="bg-white border border-stone-200 rounded-2xl p-6 lg:p-8 space-y-4">
+              <span className="text-xs font-mono uppercase text-[#A44226]">
+                Techniques in Use (Documented 2019 · Thesis Slide 13)
+              </span>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div className="p-4 bg-stone-50 border border-stone-200 rounded-xl text-center">
+                  <div className="text-2xl font-serif font-bold text-stone-900">Most</div>
+                  <div className="text-xs font-mono text-stone-600 mt-1">Artisans do block batik</div>
+                </div>
+                <div className="p-4 bg-stone-50 border border-stone-200 rounded-xl text-center">
+                  <div className="text-2xl font-serif font-bold text-[#A44226]">6–8</div>
+                  <div className="text-xs font-mono text-stone-600 mt-1">Artisans do kalamkari</div>
+                </div>
+                <div className="p-4 bg-stone-50 border border-stone-200 rounded-xl text-center">
+                  <div className="text-2xl font-serif font-bold text-stone-900">4–5</div>
+                  <div className="text-xs font-mono text-stone-600 mt-1">Artisans do screen batik</div>
+                </div>
+                <div className="p-4 bg-stone-50 border border-stone-200 rounded-xl text-center">
+                  <div className="text-2xl font-serif font-bold text-[#1E3A5F]">2</div>
+                  <div className="text-xs font-mono text-stone-600 mt-1">Work with tzanting</div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* PART 4: HOW BATIK IS MADE (#part-4) */}
+          <section className="max-w-7xl mx-auto px-6 space-y-10">
+            <div className="max-w-3xl space-y-3">
+              <span className="text-xs font-mono uppercase tracking-widest text-[#A44226]">
+                Part 04 · How Batik is Made
+              </span>
+              <h2 className="text-3xl lg:text-4xl font-serif font-bold text-stone-900">
+                Tools, Thermodynamics, and Neela Lugda Documentation
+              </h2>
+              <p className="text-base text-stone-700 leading-relaxed font-sans">
+                Bhairavgarh batik relies on specialized workshop apparatus: damp sand tables (1–2 cm) that instantly freeze molten wax without sticking, coconut-husk stylus pens feeding wax by capillary action, and calibrated wax blends (70:30 paraffin/beeswax).
+              </p>
+            </div>
+
+            {/* 6-Step Workflow */}
+            <BatikSixStepWorkflow />
+
+            {/* 5 Wax Application Methods */}
+            <FiveWaxMethods />
+
+            {/* Traditional Neela Lugda Documentation */}
+            <NeelaLugdaDocumentation />
+
+            {/* Before vs After Slider Component */}
             <BeforeAfterSlider />
           </section>
 
-          {/* Section: The Three-Pillar Architecture (#three-pillars) */}
-          <section id="three-pillars" className="max-w-7xl mx-auto px-6 space-y-12">
-            <div className="text-center max-w-3xl mx-auto space-y-3">
-              <span className="text-xs font-mono uppercase tracking-widest text-[#A44226]">
-                Strategic Framework
-              </span>
-              <h2 className="text-3xl lg:text-4xl font-serif font-bold text-stone-900">
-                A Three-Pillar Architecture for Authentic Revival
-              </h2>
-              <p className="text-sm sm:text-base text-stone-600">
-                Activated by the 2023 Geographical Indication (GI) registration, the revival binds artisan autonomy, organic chemistry, and ancient archaeological visual vocabulary into a unified system.
-              </p>
-            </div>
-
-            {/* Classical Three-Pillar Pediment Structure */}
-            <div className="space-y-6">
-              {/* Pediment Banner */}
-              <div className="bg-[#A44226] text-white p-4 rounded-xl text-center shadow-xs">
-                <span className="text-xs font-mono tracking-widest uppercase opacity-85 block">
-                  Governing Foundation
-                </span>
-                <span className="text-lg sm:text-xl font-serif font-bold">
-                  Authentic Bhairavgarh Revival (2023 GI Tag Activation)
-                </span>
-              </div>
-
-              {/* Three Pillar Cards */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                {/* Pillar 1 */}
-                <div className="bg-white border border-stone-200 rounded-2xl p-6 sm:p-8 flex flex-col justify-between space-y-6 hover:border-stone-300 transition-all shadow-xs">
-                  <div className="space-y-3">
-                    <span className="text-xs font-mono font-bold text-[#A3704C] uppercase tracking-wider block">
-                      Pillar 01 · Babool Bark Tan
-                    </span>
-                    <h3 className="text-2xl font-serif font-bold text-stone-900">
-                      Re-centering the Artisan
-                    </h3>
-                    <p className="text-xs sm:text-sm text-stone-600 leading-relaxed">
-                      Abandoning brittle commercial paraffin blends in favor of 100% pure unbleached beeswax applied at 55–60.5°C. Prevents wax from flaking off handloom cotton while offering precision control over the batik's signature crackle effect.
-                    </p>
-                  </div>
-                  <div className="pt-4 border-t border-stone-100 flex items-center justify-between text-xs font-mono text-stone-500">
-                    <span>Pure Beeswax</span>
-                    <span className="text-[#A3704C]">55–60.5°C</span>
-                  </div>
-                </div>
-
-                {/* Pillar 2 */}
-                <div className="bg-white border border-stone-200 rounded-2xl p-6 sm:p-8 flex flex-col justify-between space-y-6 hover:border-stone-300 transition-all shadow-xs">
-                  <div className="space-y-3">
-                    <span className="text-xs font-mono font-bold text-[#D9822B] uppercase tracking-wider block">
-                      Pillar 02 · Marigold Ochre
-                    </span>
-                    <h3 className="text-2xl font-serif font-bold text-stone-900">
-                      Sustainable Chemistry
-                    </h3>
-                    <p className="text-xs sm:text-sm text-stone-600 leading-relaxed">
-                      10 locally sourced organic dye extracts combined with historic Syahi fermented scrap-iron and jaggery liquor. Doubles color offerings without purchasing additional raw materials and eliminates river effluent toxicity.
-                    </p>
-                  </div>
-                  <div className="pt-4 border-t border-stone-100 flex items-center justify-between text-xs font-mono text-stone-500">
-                    <span>10 Plant Dyes</span>
-                    <span className="text-[#D9822B]">Syahi Alchemy</span>
-                  </div>
-                </div>
-
-                {/* Pillar 3 */}
-                <div className="bg-white border border-stone-200 rounded-2xl p-6 sm:p-8 flex flex-col justify-between space-y-6 hover:border-stone-300 transition-all shadow-xs">
-                  <div className="space-y-3">
-                    <span className="text-xs font-mono font-bold text-[#1E3A5F] uppercase tracking-wider block">
-                      Pillar 03 · Indigo Blue
-                    </span>
-                    <h3 className="text-2xl font-serif font-bold text-stone-900">
-                      Prehistoric Innovation
-                    </h3>
-                    <p className="text-xs sm:text-sm text-stone-600 leading-relaxed">
-                      Reclaiming the 30,000-year-old rock art of Bhimbetka (UNESCO World Heritage). Adapts dynamic communal dancing rituals, hunters, and wild bison into teak woodblocks, creating an unreplicable aesthetic signature.
-                    </p>
-                  </div>
-                  <div className="pt-4 border-t border-stone-100 flex items-center justify-between text-xs font-mono text-stone-500">
-                    <span>Bhimbetka Motifs</span>
-                    <span className="text-[#1E3A5F]">Upper Paleolithic</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* Section: Botanical Chemistry & Dye-Mordant Matrix (#chemistry) */}
+          {/* PART 5: REVIVING THE CRAFT (#part-5) */}
           <section id="chemistry" className="max-w-7xl mx-auto px-6 space-y-10">
             <div className="max-w-3xl space-y-3">
               <span className="text-xs font-mono uppercase tracking-widest text-[#A44226]">
-                Chapter 03 · Natural Color Chemistry
+                Part 05 · Reviving the Craft
               </span>
               <h2 className="text-3xl lg:text-4xl font-serif font-bold text-stone-900">
-                Formulating a Sustainable Organic Palette
+                A Revival, Not a Replica: Bhimbetka Rock Art & 10 Natural Dyes
               </h2>
-              <p className="text-base text-stone-700 leading-relaxed">
-                Replacing synthetic azo chemicals with 10 non-toxic local botanicals: Madder Root (Rubia cordifolia), Marigold Petals (Tagetes), Natural Indigo (Indigofera tinctoria), Babool Bark (Acacia nilotica), and Pomegranate Peel (Punica granatum).
+              <p className="text-base text-stone-700 leading-relaxed font-sans">
+                Revival here does not mean naively freezing an obsolete technique in amber. It means linking traditional artisan knowledge with rigorous modern interventions: extracting design motifs from the 30,000-year-old rock shelters of Bhimbetka (UNESCO 2003), deploying a 10-botanical dye palette, and scientifically verifying colorfastness at SSM Tex Lab.
               </p>
             </div>
 
-            {/* Botanical Pigments Photo Banner */}
-            <div className="relative aspect-16/9 md:aspect-21/9 rounded-2xl overflow-hidden border border-stone-200 shadow-md">
-              <img
-                src={IMAGES.dyes}
-                alt="Clay terracotta bowls with raw organic dye pigments: madder, marigold, indigo, babool bark, and iron syahi"
-                referrerPolicy="no-referrer"
-                onError={(e) => {
-                  e.currentTarget.src = '/images/botanical_dyes_pigments_1792131008735.jpg';
-                }}
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent flex items-end p-6 sm:p-8">
-                <div className="text-white max-w-xl space-y-1">
-                  <div className="text-xs font-mono uppercase tracking-widest text-amber-300">
-                    Bhairavgarh Raw Botanical Spectrum
-                  </div>
-                  <div className="text-xl sm:text-2xl font-serif font-bold">
-                    Natural Extracts in Traditional Earthenware
-                  </div>
-                  <p className="text-xs sm:text-sm text-stone-200">
-                    Madder root, temple marigolds, natural indigo, babool tannin bark, and aged syahi fermented iron liquor.
-                  </p>
-                </div>
-              </div>
-            </div>
+            {/* 4-Stage Motif Translation Flow */}
+            <MotifTranslationFlow />
 
-            {/* Embedded Dye Matrix Simulator */}
+            {/* Dye Matrix Simulator */}
             <DyeMatrixSimulator />
 
-            {/* Technical Fastness & Lab Validation */}
+            {/* 10 Physical Products Showcase & Prototypes */}
+            <div id="prototypes" className="space-y-10 scroll-mt-24">
+              <TenProductsShowcase />
+              <PrototypeGallery />
+            </div>
+
+            {/* SSM Tex Lab Certificate & Environmental Metrics */}
+            <SSMTexLabCertificate />
+
+            {/* Quantitative River Metrics & Eco Calculator */}
             <LabEcoMetrics />
           </section>
 
-          {/* Section: Prehistoric Motif Translation & Layered Synthesis (#process) */}
-          <section id="process" className="max-w-7xl mx-auto px-6 space-y-10">
-            <div className="max-w-3xl space-y-3">
-              <span className="text-xs font-mono uppercase tracking-widest text-[#A44226]">
-                Chapter 04 · Motif Translation & Material Synthesis
-              </span>
-              <h2 className="text-3xl lg:text-4xl font-serif font-bold text-stone-900">
-                From 30,000-Year Cave Art to Molten Wax
-              </h2>
-              <p className="text-base text-stone-700 leading-relaxed">
-                How archaeological heritage is ethically and technically translated into a workable batik motif without losing its visual integrity, followed by exploded 3D textile layering.
-              </p>
-            </div>
-
-            {/* Embedded Motif Translation Flow */}
-            <MotifTranslationFlow />
-
-            {/* Embedded Exploded Layer Visualizer */}
-            <LayerVisualizer />
-          </section>
-
-          {/* Section: Prototype Galleries (#prototypes) */}
-          <section id="prototypes" className="max-w-7xl mx-auto px-6 space-y-10">
-            <div className="max-w-3xl space-y-3">
-              <span className="text-xs font-mono uppercase tracking-widest text-[#A44226]">
-                Chapter 05 · Design Execution
-              </span>
-              <h2 className="text-3xl lg:text-4xl font-serif font-bold text-stone-900">
-                Prototypes: Premium Apparel & Heritage Living
-              </h2>
-              <p className="text-base text-stone-700 leading-relaxed">
-                Physical garments and home textiles proving commercial viability, aesthetic elegance, and superior handloom craft.
-              </p>
-            </div>
-
-            {/* Embedded Prototype Gallery with Hotspots & Lightbox */}
-            <PrototypeGallery />
-          </section>
-
-          {/* Section: Transformation, Future Roadmap & GI Activation (#transformation) */}
+          {/* PART 6: THE ROAD AHEAD & REFERENCES (#part-6) */}
           <section id="transformation" className="max-w-7xl mx-auto px-6 space-y-10">
             <div className="bg-[#FAF8F5] border border-stone-200 rounded-2xl p-8 lg:p-12 space-y-8">
               <div className="max-w-3xl space-y-3">
                 <span className="text-xs font-mono uppercase tracking-widest text-[#A44226]">
-                  Chapter 06 · Commercial Activation
+                  Part 06 · The Road Ahead
                 </span>
                 <h2 className="text-3xl lg:text-4xl font-serif font-bold text-stone-900">
-                  The Future of Authentic Bhairavgarh
+                  Five Strategic Pillars for Bhairavgarh's Future
                 </h2>
-                <p className="text-base text-stone-700 leading-relaxed">
-                  The research proves that the revival of Bhairavgarh Batik is environmentally essential, technically viable, and market-ready. The three immediate vectors for commercial activation are:
+                <p className="text-base text-stone-700 leading-relaxed font-sans">
+                  "Every craft has a story. This one is still being written." — Rupal Joshi. The research establishes five concrete action vectors to anchor the craft's sustainable survival:
                 </p>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4 border-t border-stone-200">
-                <div className="p-6 bg-white border border-stone-200 rounded-xl space-y-3 shadow-2xs">
-                  <div className="w-8 h-8 rounded-full bg-stone-900 text-white font-mono text-xs flex items-center justify-center font-bold">
-                    01
+              {/* 5 Strategic Pillars Grid */}
+              <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
+                {[
+                  { num: 1, title: "Document Chhipa Knowledge", desc: "Record oral histories and hereditary wax techniques before the elder generation fades." },
+                  { num: 2, title: "Scale Natural Dyes", desc: "Deploy 10 non-toxic botanicals tested for fastness, eliminating Kshipra River chemical pollution." },
+                  { num: 3, title: "Bhimbetka Motif IP", desc: "Build a defensible prehistoric visual language backed by the 2023 Ujjain Batik GI Tag." },
+                  { num: 4, title: "Artisan-Centered Economy", desc: "Center craftsmen as active co-designers, raising incomes from $2.50 to $14–$18.50 per day." },
+                  { num: 5, title: "Test Contemporary Markets", desc: "Develop high-margin apparel, home living, and ethical luxury accessories." }
+                ].map((pillar) => (
+                  <div key={pillar.num} className="p-5 bg-white border border-stone-200 rounded-xl space-y-2 shadow-2xs">
+                    <span className="w-7 h-7 rounded-full bg-[#A44226] text-white font-mono text-xs font-bold flex items-center justify-center">
+                      {pillar.num}
+                    </span>
+                    <h3 className="text-sm font-serif font-bold text-stone-900 mt-2">
+                      {pillar.title}
+                    </h3>
+                    <p className="text-xs text-stone-600 leading-relaxed font-sans">
+                      {pillar.desc}
+                    </p>
                   </div>
-                  <h3 className="text-lg font-serif font-bold text-stone-900">
-                    2023 GI Tag Legal Enforcement
-                  </h3>
-                  <p className="text-xs text-stone-600 leading-relaxed">
-                    Leverage the 2023 Ujjain Batik Geographical Indication to protect artisan intellectual property and prosecute counterfeit industrial mill prints.
-                  </p>
-                </div>
-
-                <div className="p-6 bg-white border border-stone-200 rounded-xl space-y-3 shadow-2xs">
-                  <div className="w-8 h-8 rounded-full bg-[#A44226] text-white font-mono text-xs flex items-center justify-center font-bold">
-                    02
-                  </div>
-                  <h3 className="text-lg font-serif font-bold text-stone-900">
-                    Empowering Women Artisans
-                  </h3>
-                  <p className="text-xs text-stone-600 leading-relaxed">
-                    Transition from low-wage commodity piecework ($2.50/day) to premium cooperative profit-sharing ($14–$18.50/day), centering women master wax crafters.
-                  </p>
-                </div>
-
-                <div className="p-6 bg-white border border-stone-200 rounded-xl space-y-3 shadow-2xs">
-                  <div className="w-8 h-8 rounded-full bg-emerald-800 text-white font-mono text-xs flex items-center justify-center font-bold">
-                    03
-                  </div>
-                  <h3 className="text-lg font-serif font-bold text-stone-900">
-                    Circular Botanical Supply Chain
-                  </h3>
-                  <p className="text-xs text-stone-600 leading-relaxed">
-                    Scale upcycled temple floral collections and local farmers' madder/indigo crops to create a regenerative local raw materials cooperative.
-                  </p>
-                </div>
+                ))}
               </div>
 
-              {/* Pitch CTA card */}
+              {/* Direct PDF Download / Pitch CTA card */}
               <div className="bg-stone-900 text-white p-8 rounded-2xl flex flex-col md:flex-row items-center justify-between gap-6 shadow-md">
                 <div className="space-y-1">
+                  <div className="flex items-center gap-2 text-xs font-mono text-amber-400">
+                    <Award className="w-4 h-4" />
+                    <span>Doctoral Presentation & Complete Academic Monograph</span>
+                  </div>
                   <h3 className="text-xl sm:text-2xl font-serif font-bold">
-                    Ready to Present or Share This Research?
+                    Read the Complete 45-Page Doctoral Thesis Deck
                   </h3>
-                  <p className="text-xs sm:text-sm text-stone-300">
-                    Switch to the interactive 15-slide deck with presenter notes or download the executive brief.
+                  <p className="text-xs sm:text-sm text-stone-300 max-w-xl">
+                    Access the complete research document, including field interviews with the Badwala family, NIFT graduation data, and SSM Tex Lab fastness certificates.
                   </p>
                 </div>
-                <div className="flex items-center gap-3 shrink-0">
-                  <button
-                    onClick={() => handleLaunchPresentation(1)}
+                <div className="flex flex-wrap items-center gap-3 shrink-0">
+                  <a
+                    href={IMAGES.pdf}
+                    download="Rupal_Joshi_Bhairavgarh_Batik_Presentation.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-[#A44226] text-white text-xs font-semibold hover:bg-[#8B351E] transition-all shadow-sm"
                   >
+                    <Download className="w-4 h-4" />
+                    <span>Download Thesis PDF (45 Pages)</span>
+                  </a>
+
+                  <button
+                    onClick={() => handleLaunchPresentation(1)}
+                    className="inline-flex items-center gap-2 px-4 py-3 rounded-xl bg-stone-800 hover:bg-stone-700 text-white text-xs font-semibold transition-all border border-stone-700"
+                  >
                     <Presentation className="w-4 h-4" />
-                    <span>Open Presentation Deck</span>
+                    <span>Launch 32 Slides</span>
                   </button>
+
                   <button
                     onClick={() => setShowDossierModal(true)}
                     className="inline-flex items-center gap-2 px-4 py-3 rounded-xl bg-stone-800 hover:bg-stone-700 text-white text-xs font-semibold transition-all border border-stone-700"
@@ -538,6 +506,23 @@ export default function App() {
                     <FileDown className="w-4 h-4" />
                     <span>Executive Summary</span>
                   </button>
+                </div>
+              </div>
+
+              {/* Academic References */}
+              <div className="pt-6 border-t border-stone-200 space-y-3">
+                <span className="text-xs font-mono uppercase tracking-widest text-stone-500 block">
+                  Cited Academic Literature & Sources (Thesis Slide 32 & Page 45)
+                </span>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-2 text-xs text-stone-600 font-mono">
+                  <div>• R. Joshi: Doctoral thesis (Synopsis & Chapters 1 to 5)</div>
+                  <div>• R. Nema (2019): Revival of Bhairavgarh block print, NIFT Bhopal</div>
+                  <div>• Roy Maulik (2021): Tagore, Java and Indian batik</div>
+                  <div>• Santiago, Cunha and Cabral (2023): Natural dyes review</div>
+                  <div>• Li et al. (2020) & Febriani et al. (2023): Batik origins</div>
+                  <div>• UNESCO World Heritage Centre (2003): Bhimbetka Rock Shelters</div>
+                  <div>• UNESCO Intangible Cultural Heritage (2009): Indonesian Batik</div>
+                  <div>• Gaatha (n.d.); Handicrafts.nic.in: Bhairavgarh tools & history</div>
                 </div>
               </div>
             </div>
@@ -550,15 +535,15 @@ export default function App() {
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-xs text-stone-500 font-mono">
           <div className="flex items-center gap-2">
             <span className="font-serif font-bold text-stone-900 text-sm">
-              The Revival of Bhairavgarh Batik
+              बाटिक · The Revival of Bhairavgarh Batik
             </span>
             <span aria-hidden="true">·</span>
-            <span>Creative Research Portfolio</span>
+            <span>Doctoral Creative Portfolio</span>
           </div>
 
           <div className="flex items-center gap-6">
             <span>Ujjain Batik GI Tag (2023)</span>
-            <span>SSM Tex Lab Certified</span>
+            <span>SSM Tex Lab Certified (SAR 26-27-610)</span>
             <span>UNESCO Bhimbetka Rock Art</span>
           </div>
 
@@ -590,7 +575,7 @@ export default function App() {
                   Executive Research Dossier
                 </span>
                 <h3 className="text-2xl font-serif font-bold text-stone-900">
-                  Project Brief & Research Summary
+                  बाटिक: Every Craft Has a Story
                 </h3>
               </div>
               <button
@@ -606,23 +591,28 @@ export default function App() {
                 <strong>Project Title:</strong> The Revival of Bhairavgarh Batik: Integrating 400 years of Chhipa mastery, natural plant chemistry, and India's oldest prehistoric design vocabulary into a sustainable future.
               </p>
               <p>
-                <strong>Author / Designer:</strong> Rupal Joshi (Creative Portfolio & Case Study)
+                <strong>Author / Researcher:</strong> Rupal Joshi (Doctoral Research & Creative Portfolio)
               </p>
               <p>
-                <strong>Core Problem:</strong> A 400-year craft cluster faced ecological destruction (synthetic azo effluent polluting the sacred Kshipra River) and commercial erasure (competing with generic Indonesian-style machine prints for $2.50/day).
+                <strong>Original Presentation:</strong> 45-page doctoral defense deck (`final_5623be0e.pdf`) organized across 6 parts: About Bhairavgarh, The Craftsmen, History of Batik, How Batik is Made, Reviving the Craft, and The Road Ahead.
               </p>
               <p>
-                <strong>Innovation Triad:</strong>
-                <br />1. Re-centered 100% pure unbleached beeswax at 55–60.5°C to eliminate paraffin brittleness.
-                <br />2. Reintroduced 10 organic plant dyes with Syahi iron-scrap liquor doubling color yield at zero raw cost.
-                <br />3. Extracted and calibrated 30,000-year-old Bhimbetka cave art motifs for hand-carved teak woodblocks.
-              </p>
-              <p>
-                <strong>Verified Metrics:</strong> 4.0 ISO Dry Rubbing Fastness, 4.0 Blue Wool Light Fastness, 22L water consumption per cycle, zero heavy metals in effluent, and 6x wage increase for Chhipa artisans.
+                <strong>Key Findings & Scientific Validation:</strong>
+                <br />1. Tested at SSM Tex Lab (Test ID SAR 26-27-610): Grade 4.0 dry rubbing fastness, Grade 4.0 light fastness on Blue Wool scale, and positive spot extraction confirming 100% pure natural dye.
+                <br />2. Reintroduced 10 indigenous dyestuffs: Madder, Marigold, Indigo, Babool bark, Pomegranate peel, Catechu, Henna, Alkanet, Turmeric, and Iron-jaggery liquor.
+                <br />3. Water efficiency: Reduced consumption to 22L per color cycle with 92% beeswax thermal reclamation.
               </p>
             </div>
 
-            <div className="flex justify-end pt-4 border-t border-stone-200">
+            <div className="flex justify-between items-center pt-4 border-t border-stone-200">
+              <a
+                href={IMAGES.pdf}
+                download="Rupal_Joshi_Bhairavgarh_Batik_Presentation.pdf"
+                className="inline-flex items-center gap-1.5 text-xs font-mono text-[#A44226] hover:underline"
+              >
+                <Download className="w-3.5 h-3.5" />
+                <span>Download Thesis PDF</span>
+              </a>
               <button
                 onClick={() => setShowDossierModal(false)}
                 className="px-5 py-2.5 bg-stone-900 text-white rounded-xl text-xs font-medium hover:bg-stone-800 transition-colors"
