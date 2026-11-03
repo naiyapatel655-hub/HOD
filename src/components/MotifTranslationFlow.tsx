@@ -41,7 +41,11 @@ const STEPS: TranslationStep[] = [
   }
 ];
 
-export const MotifTranslationFlow: React.FC = () => {
+interface MotifTranslationFlowProps {
+  sourceImage?: string;
+}
+
+export const MotifTranslationFlow: React.FC<MotifTranslationFlowProps> = ({ sourceImage }) => {
   const [activeStep, setActiveStep] = useState<number>(1);
   const [lineWidth, setLineWidth] = useState<number>(2.0); // mm
   const [stampedPositions, setStampedPositions] = useState<{ x: number; y: number }[]>([
@@ -69,16 +73,25 @@ export const MotifTranslationFlow: React.FC = () => {
   return (
     <div className="bg-[#FAF8F5] border border-stone-200 rounded-2xl p-6 lg:p-8 space-y-8 shadow-xs">
       {/* Header */}
-      <div className="border-b border-stone-200 pb-6">
-        <span className="text-xs uppercase tracking-widest font-mono text-stone-500">
-          Design Translation Pipeline · Slide 10
-        </span>
-        <h3 className="text-2xl lg:text-3xl font-serif font-semibold text-stone-900 mt-1">
-          Translating Prehistoric Art into Molten Wax
-        </h3>
-        <p className="text-sm text-stone-600 mt-1 max-w-2xl">
-          How archaeological heritage is ethically and technically translated into a workable batik motif without losing its visual integrity.
-        </p>
+      <div className="border-b border-stone-200 pb-6 grid grid-cols-1 md:grid-cols-[minmax(0,1fr)_15rem] gap-5 items-center">
+        <div>
+          <span className="text-xs uppercase tracking-widest font-mono text-stone-500">
+            Design Translation Pipeline
+          </span>
+          <h3 className="text-2xl lg:text-3xl font-serif font-semibold text-stone-900 mt-1">
+            Translating Prehistoric Art into Molten Wax
+          </h3>
+          <p className="text-sm text-stone-600 mt-1 max-w-2xl">
+            How archaeological heritage is ethically and technically translated into a workable batik motif without losing its visual integrity.
+          </p>
+        </div>
+        {sourceImage && (
+          <img
+            src={sourceImage}
+            alt="Carved Bhairavgarh wooden blocks and printed textiles"
+            className="w-full h-40 md:h-36 rounded-xl object-cover border border-stone-200 shadow-xs"
+          />
+        )}
       </div>
 
       {/* 4-Step Interactive Flow Tabs */}

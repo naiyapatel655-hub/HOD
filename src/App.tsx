@@ -141,7 +141,7 @@ export default function App() {
                     alt="Authentic Bhairavgarh Batik textile with madder red dye and prehistoric dancing motifs"
                     referrerPolicy="no-referrer"
                     onError={(e) => {
-                      e.currentTarget.src = '/images/hero_bhairavgarh_batik_1792131005667.jpg';
+                      e.currentTarget.src = '/assets/gdrive/IMG_20250728_131148.jpg';
                     }}
                     className="w-full h-full object-cover"
                   />
@@ -261,12 +261,12 @@ export default function App() {
                     alt="Sacred Kshipra River in Ujjain at golden hour sunrise with historic stone ghats"
                     referrerPolicy="no-referrer"
                     onError={(e) => {
-                      e.currentTarget.src = '/images/ujjain_kshipra_river_1792132450811.jpg';
+                      e.currentTarget.src = '/assets/gdrive/IMG_20250728_122413.jpg';
                     }}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-102"
                   />
                   <div className="absolute top-3 left-3 bg-black/60 backdrop-blur-md px-3 py-1 rounded text-xs font-mono text-white/95">
-                    01 · Sacred Kshipra River, Ujjain
+                    01 · Sacred Kshipra River & Ghats, Ujjain
                   </div>
                 </div>
                 <div className="text-xs text-stone-600 leading-relaxed font-sans px-1">
@@ -279,10 +279,10 @@ export default function App() {
                 <div className="relative aspect-16/10 rounded-2xl overflow-hidden border border-stone-200 shadow-md bg-stone-100 group">
                   <img
                     src={IMAGES.mahakaal}
-                    alt="Historic sacred Mahakaleshwar Temple in Ujjain at dawn"
+                    alt="Historic sacred temple architecture in Ujjain"
                     referrerPolicy="no-referrer"
                     onError={(e) => {
-                      e.currentTarget.src = '/images/ujjain_mahakaal_temple_1792132451019.jpg';
+                      e.currentTarget.src = '/assets/gdrive/IMG_20250728_122424.jpg';
                     }}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-102"
                   />

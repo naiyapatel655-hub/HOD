@@ -3,10 +3,13 @@ import { PROTOTYPES_DATA, PrototypeItem } from '../data/portfolioData';
 import { Maximize2, X, Clock, Sparkles, Layers, Info } from 'lucide-react';
 import { soundscape } from '../utils/soundscape';
 
+type CategoryFilter = 'All' | 'Apparel' | 'Home Furnishing' | 'Accessories' | 'Stationery';
+
 export const PrototypeGallery: React.FC = () => {
-  const [filter, setFilter] = useState<'All' | 'Apparel' | 'Heritage Textiles'>('All');
+  const [filter, setFilter] = useState<CategoryFilter>('All');
   const [selectedProto, setSelectedProto] = useState<PrototypeItem | null>(null);
   const [activeHotspotIdx, setActiveHotspotIdx] = useState<number | null>(null);
+  const [activeImageKey, setActiveImageKey] = useState<'primary' | 'secondary'>('primary');
 
   const filteredItems = filter === 'All'
     ? PROTOTYPES_DATA
@@ -17,24 +20,24 @@ export const PrototypeGallery: React.FC = () => {
       {/* Category Filter Controls */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-stone-200 pb-4">
         <div>
-          <span className="text-xs uppercase tracking-widest font-mono text-stone-500">
-            Slide 12 & 13 · Physical Proof
+          <span className="text-xs uppercase tracking-widest font-mono text-[#A44226]">
+            Doctoral Physical Proof · 10 Prototypes
           </span>
           <h3 className="text-2xl font-serif font-bold text-stone-900 mt-0.5">
-            Prototype Galleries: Apparel & Heritage Living
+            Prototype Galleries: Apparel, Home Furnishing & Accessories
           </h3>
         </div>
 
         {/* Filter buttons */}
-        <div className="flex items-center gap-1.5 p-1 bg-stone-200/60 rounded-lg">
-          {(['All', 'Apparel', 'Heritage Textiles'] as const).map(cat => (
+        <div className="flex flex-wrap items-center gap-1.5 p-1 bg-stone-200/60 rounded-xl">
+          {(['All', 'Apparel', 'Home Furnishing', 'Accessories', 'Stationery'] as const).map(cat => (
             <button
               key={cat}
               onClick={() => {
                 soundscape.playPaperSlide();
                 setFilter(cat);
               }}
-              className={`px-3 py-1.5 text-xs font-medium rounded-md transition-all ${
+              className={`px-3 py-1.5 text-xs font-medium rounded-lg transition-all ${
                 filter === cat ? 'bg-white text-stone-900 shadow-xs' : 'text-stone-600 hover:text-stone-900'
               }`}
             >
@@ -58,7 +61,7 @@ export const PrototypeGallery: React.FC = () => {
                 alt={proto.name}
                 referrerPolicy="no-referrer"
                 onError={(e) => {
-                  e.currentTarget.src = '/images/prototype_apparel_collection_1792131008704.jpg';
+                  e.currentTarget.src = '/assets/gdrive/DSC00823.jpeg';
                 }}
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-102"
               />
@@ -162,19 +165,40 @@ export const PrototypeGallery: React.FC = () => {
             onClick={(e) => e.stopPropagation()}
           >
             {/* Modal Left: Image */}
-            <div className="md:w-1/2 bg-stone-950 relative min-h-[300px] flex items-center justify-center overflow-hidden">
+            <div className="md:w-1/2 bg-stone-950 relative min-h-[340px] flex flex-col items-center justify-center overflow-hidden">
               <img
-                src={selectedProto.image}
+                src={activeImageKey === 'secondary' && selectedProto.secondaryImage ? selectedProto.secondaryImage : selectedProto.image}
                 alt={selectedProto.name}
                 referrerPolicy="no-referrer"
                 onError={(e) => {
-                  e.currentTarget.src = '/images/prototype_apparel_collection_1792131008704.jpg';
+                  e.currentTarget.src = '/assets/gdrive/DSC00823.jpeg';
                 }}
                 className="w-full h-full object-cover"
               />
               <div className="absolute top-3 left-3 bg-black/60 text-white text-xs font-mono px-3 py-1 rounded">
-                High-Resolution Strike-Off
+                {activeImageKey === 'secondary' ? 'Detail / Variation View' : 'Authentic Fieldwork Specimen'}
               </div>
+
+              {selectedProto.secondaryImage && (
+                <div className="absolute bottom-3 left-3 right-3 flex items-center justify-center gap-2 bg-black/70 backdrop-blur-md p-1.5 rounded-xl">
+                  <button
+                    onClick={() => setActiveImageKey('primary')}
+                    className={`px-3 py-1 text-xs font-mono rounded-lg transition-all ${
+                      activeImageKey === 'primary' ? 'bg-[#A44226] text-white font-bold' : 'text-stone-300 hover:text-white'
+                    }`}
+                  >
+                    Main View
+                  </button>
+                  <button
+                    onClick={() => setActiveImageKey('secondary')}
+                    className={`px-3 py-1 text-xs font-mono rounded-lg transition-all ${
+                      activeImageKey === 'secondary' ? 'bg-[#A44226] text-white font-bold' : 'text-stone-300 hover:text-white'
+                    }`}
+                  >
+                    Detail / Variant
+                  </button>
+                </div>
+              )}
             </div>
 
             {/* Modal Right: Technical Specs */}

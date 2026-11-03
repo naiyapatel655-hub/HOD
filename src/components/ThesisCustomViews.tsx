@@ -21,6 +21,7 @@ import {
   Palette,
   Eye
 } from 'lucide-react';
+import { SlideImageRipple } from './SlideImageRipple';
 
 /**
  * Interactive Timeline (1930s to Today) from Thesis Slide 14
@@ -516,44 +517,65 @@ export const NeelaLugdaDocumentation: React.FC = () => {
  */
 export const TenProductsShowcase: React.FC = () => {
   const [selectedProduct, setSelectedProduct] = useState<ProductCollectionItem>(TEN_PRODUCTS_DATA[0]);
+  const [lightboxImage, setLightboxImage] = useState<string | null>(null);
 
   return (
     <div className="bg-white border border-stone-200 rounded-2xl p-6 lg:p-8 space-y-6 shadow-xs">
-      <div className="border-b border-stone-100 pb-4">
-        <span className="text-xs font-mono uppercase tracking-widest text-[#A44226]">
-          Physical Prototypes · Thesis Slide 29 & Page 42
-        </span>
-        <h3 className="text-2xl font-serif font-bold text-stone-900 mt-1">
-          Ten Products, Ten Natural Colours: The Prototype Capsule
-        </h3>
-        <p className="text-xs sm:text-sm text-stone-600 mt-1">
-          A market-ready capsule spanning apparel, home furnishings, accessories, and stationery, proving that 10 locally sourced botanicals achieve full commercial versatility.
-        </p>
+      <div className="border-b border-stone-100 pb-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+        <div>
+          <span className="text-xs font-mono uppercase tracking-widest text-[#A44226]">
+            Physical Prototypes · Thesis Slide 29 & Page 42
+          </span>
+          <h3 className="text-2xl font-serif font-bold text-stone-900 mt-1">
+            Ten Products, Ten Natural Colours: The Prototype Capsule
+          </h3>
+          <p className="text-xs sm:text-sm text-stone-600 mt-1">
+            A market-ready capsule spanning apparel, home furnishings, accessories, and stationery, proving that 10 locally sourced botanicals achieve full commercial versatility.
+          </p>
+        </div>
+        <div className="shrink-0 text-xs font-mono px-3 py-1.5 rounded-lg bg-stone-100 text-stone-700 border border-stone-200 self-start sm:self-auto">
+          10 / 10 Verified Prototypes
+        </div>
       </div>
 
-      {/* 10 Products Grid */}
-      <div className="grid grid-cols-2 sm:grid-cols-5 gap-3">
+      {/* 10 Products Grid with Authentic Photos */}
+      <div className="grid grid-cols-2 sm:grid-cols-5 gap-3.5">
         {TEN_PRODUCTS_DATA.map((prod) => {
           const isSelected = selectedProduct.id === prod.id;
           return (
             <button
               key={prod.id}
               onClick={() => setSelectedProduct(prod)}
-              className={`p-3.5 rounded-xl border text-left transition-all flex flex-col justify-between ${
+              className={`group p-2.5 rounded-xl border text-left transition-all flex flex-col justify-between overflow-hidden cursor-pointer ${
                 isSelected
-                  ? 'border-[#A44226] bg-[#A44226]/5 ring-2 ring-[#A44226]'
+                  ? 'border-[#A44226] bg-[#A44226]/5 ring-2 ring-[#A44226] shadow-sm'
                   : 'border-stone-200 bg-stone-50 hover:bg-stone-100 hover:border-stone-300'
               }`}
             >
-              <div className="flex items-center justify-between w-full">
-                <span
-                  className="w-5 h-5 rounded-full border border-stone-300 shadow-2xs"
-                  style={{ backgroundColor: prod.colorHex }}
+              {/* Product Photo Thumbnail */}
+              <div className="relative aspect-square w-full rounded-lg overflow-hidden bg-stone-200 mb-2.5">
+                <img
+                  src={prod.image}
+                  alt={prod.name}
+                  referrerPolicy="no-referrer"
+                  onError={(e) => {
+                    e.currentTarget.src = '/assets/gdrive/DSC00823.jpeg';
+                  }}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
-                <span className="text-[10px] font-mono text-stone-400">{prod.category}</span>
+                {/* Overlay Badge */}
+                <div className="absolute top-1.5 left-1.5 flex items-center gap-1 bg-black/60 backdrop-blur-xs px-1.5 py-0.5 rounded text-[10px] text-white font-mono">
+                  <span
+                    className="w-2.5 h-2.5 rounded-full border border-white/50"
+                    style={{ backgroundColor: prod.colorHex }}
+                  />
+                  <span>{prod.category}</span>
+                </div>
               </div>
-              <div className="mt-3">
-                <div className="text-xs font-serif font-bold text-stone-900 line-clamp-1">
+
+              {/* Title & Dye info */}
+              <div className="space-y-0.5 w-full">
+                <div className="text-xs font-serif font-bold text-stone-900 line-clamp-1 group-hover:text-[#A44226] transition-colors">
                   {prod.name}
                 </div>
                 <div className="text-[11px] text-[#A44226] font-medium line-clamp-1">
@@ -565,37 +587,89 @@ export const TenProductsShowcase: React.FC = () => {
         })}
       </div>
 
-      {/* Selected Product Detail Card */}
-      <div className="p-6 bg-[#FAF8F5] border border-stone-200 rounded-xl flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-        <div className="space-y-2">
-          <div className="flex items-center gap-3">
-            <span
-              className="w-6 h-6 rounded-full border border-stone-300 shadow-xs"
-              style={{ backgroundColor: selectedProduct.colorHex }}
-            />
-            <h4 className="text-xl font-serif font-bold text-stone-900">
-              {selectedProduct.name} ({selectedProduct.colorName})
+      {/* Selected Product Detail Card with Large Photo */}
+      <div className="p-6 bg-[#FAF8F5] border border-stone-200 rounded-2xl flex flex-col md:flex-row items-center justify-between gap-6">
+        {/* Large Image Preview with Interactive Dye Water Ripples */}
+        <div className="w-full md:w-5/12 relative">
+          <SlideImageRipple
+            src={selectedProduct.image}
+            alt={selectedProduct.name}
+            caption={`Prototype #${selectedProduct.id.toUpperCase()} · ${selectedProduct.dye} (${selectedProduct.colorName})`}
+            aspectRatio="aspect-4/3"
+          />
+        </div>
+
+        {/* Detailed Information */}
+        <div className="w-full md:w-7/12 space-y-4">
+          <div className="space-y-1.5">
+            <div className="flex flex-wrap items-center gap-2">
+              <span className="text-xs font-mono uppercase bg-[#A44226] text-white px-2.5 py-0.5 rounded">
+                Prototype {selectedProduct.id.toUpperCase()}
+              </span>
+              <span className="text-xs font-mono bg-stone-200 px-2 py-0.5 rounded text-stone-700">
+                {selectedProduct.category}
+              </span>
+            </div>
+
+            <h4 className="text-2xl font-serif font-bold text-stone-900">
+              {selectedProduct.name}
             </h4>
-            <span className="text-xs font-mono bg-stone-200 px-2 py-0.5 rounded text-stone-700">
-              {selectedProduct.category}
-            </span>
+
+            <div className="text-xs font-mono text-[#A44226] font-semibold">
+              Dye Source: {selectedProduct.dye} · <em className="italic">{selectedProduct.dyeScientific}</em>
+            </div>
           </div>
 
-          <div className="text-xs font-mono text-[#A44226]">
-            Dye Source: {selectedProduct.dye} · <em>{selectedProduct.dyeScientific}</em>
-          </div>
-
-          <p className="text-xs sm:text-sm text-stone-700 leading-relaxed max-w-2xl font-sans">
+          <p className="text-xs sm:text-sm text-stone-700 leading-relaxed font-sans">
             {selectedProduct.description}
           </p>
-        </div>
 
-        <div className="shrink-0 text-right space-y-1">
-          <div className="text-xs font-mono text-stone-500">SSM Tex Lab Verified</div>
-          <div className="text-sm font-serif font-bold text-emerald-800">Test ID: SAR 26-27-610</div>
-          <div className="text-[11px] font-mono text-stone-400">Cool hand wash, dry in shade</div>
+          <div className="pt-3 border-t border-stone-200 flex flex-wrap items-center justify-between gap-3 text-xs">
+            <div className="space-y-0.5">
+              <div className="text-[11px] font-mono text-stone-500">SSM Tex Lab Fastness Verified</div>
+              <div className="font-serif font-bold text-emerald-800">Test ID: SAR 26-27-610 · Grade 4 (Very Good)</div>
+            </div>
+
+            <button
+              onClick={() => setLightboxImage(selectedProduct.image)}
+              className="inline-flex items-center gap-1.5 px-4 py-2 bg-stone-900 hover:bg-[#A44226] text-white rounded-xl text-xs font-mono transition-all"
+            >
+              <Eye className="w-3.5 h-3.5" />
+              <span>Inspect Fullscreen</span>
+            </button>
+          </div>
         </div>
       </div>
+
+      {/* Lightbox Modal */}
+      {lightboxImage && (
+        <div
+          className="fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-4 sm:p-6 animate-in fade-in duration-200"
+          onClick={() => setLightboxImage(null)}
+        >
+          <div
+            className="relative max-w-4xl max-h-[90vh] bg-stone-900 rounded-2xl overflow-hidden shadow-2xl flex flex-col items-center justify-center p-2"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              onClick={() => setLightboxImage(null)}
+              className="absolute top-4 right-4 z-10 p-2 bg-black/60 hover:bg-black/90 text-white rounded-full transition-all"
+              aria-label="Close photo preview"
+            >
+              ✕
+            </button>
+            <img
+              src={lightboxImage}
+              alt={selectedProduct.name}
+              referrerPolicy="no-referrer"
+              className="max-h-[80vh] w-auto max-w-full object-contain rounded-xl"
+            />
+            <div className="w-full text-center py-2 text-stone-300 font-serif text-sm">
+              {selectedProduct.name} — Authentic Research Prototype Specimen ({selectedProduct.dye})
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

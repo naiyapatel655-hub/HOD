@@ -1,20 +1,71 @@
-import heroBhairavgarhImg from '../assets/images/hero_bhairavgarh_batik_1792131005667.jpg';
-import chhipaArtisanImg from '../assets/images/chhipa_artisan_woodblock_1792131007154.jpg';
-import botanicalDyesImg from '../assets/images/botanical_dyes_pigments_1792131008735.jpg';
-import prototypeApparelImg from '../assets/images/prototype_apparel_collection_1792131008704.jpg';
-import heritageTextilesImg from '../assets/images/heritage_textiles_saree_1792131008791.jpg';
-import ujjainKshipraImg from '../assets/images/ujjain_kshipra_river_1792132450811.jpg';
-import ujjainMahakaalImg from '../assets/images/ujjain_mahakaal_temple_1792132451019.jpg';
+import img7834 from '../assets/images/IMG_7834.jpg';
+import imgResearchFocus from '../assets/images/IMG_20250728_142843.jpg.jpeg';
+import imgBhairavgarhTextiles from '../assets/images/IMG_20250728_122413.jpg.jpeg';
+import imgChhipaArtisan from '../assets/images/chhipa_artisan_woodblock_1792131007154.jpg';
+import imgUjjainKshipraRiver from '../assets/images/ujjain_kshipra_river_1792132450811.jpg';
+import imgBhairavgarhSlide7 from '../assets/images/image.png';
+import imgRiverCraftSlide10 from '../assets/images/WhatsApp Image 2026-11-03 at 1.49.31 PM.jpeg';
+import imgBhairavgarhSlide16 from '../assets/images/IMG_20250728_122348.jpg.jpeg';
+import imgBotanicalDyes from '../assets/images/botanical_dyes_pigments_1792131008735.jpg';
+import imgMotifTranslation from '../assets/images/IMG_20260816_192813.jpg.jpeg';
+import imgSlide20Textile from '../assets/images/WhatsApp Image 2026-11-03 at 2.19.59 PM.jpeg';
+import imgSlide28DyeBath from '../assets/images/IMG_20260215_155943.jpg.jpeg';
+import imgSlide31DSC00823 from '../assets/images/DSC00823.jpeg';
 
+// Authentic Fieldwork & Prototype Photographs from Google Drive (Folder 1DQVMG6nAk3k40Tx3VPr6yxg2tNMAuwZb)
 export const IMAGES = {
-  hero: heroBhairavgarhImg,
-  artisan: chhipaArtisanImg,
-  dyes: botanicalDyesImg,
-  apparel: prototypeApparelImg,
-  saree: heritageTextilesImg,
-  kshipra: ujjainKshipraImg,
-  mahakaal: ujjainMahakaalImg,
-  pdf: "/public/assets/aistudio/final_5623be0e.pdf",
+  // Primary Visuals
+  hero: "/assets/gdrive/IMG_20250728_131148.jpg", // Chhipa artisan printing table in Bhairavgarh
+  artisan: "/assets/gdrive/IMG_20250728_131200.jpg", // Master artisan with carved woodblocks
+  storyCraft: img7834, // IMG_7834 image for slide 2
+  researchFocus: imgResearchFocus,
+  bhairavgarhTextiles: imgBhairavgarhTextiles,
+  chhipaArtisan: imgChhipaArtisan,
+  ujjainKshipraRiver: imgUjjainKshipraRiver,
+  bhairavgarhSlide7: imgBhairavgarhSlide7,
+  riverCraftSlide10: imgRiverCraftSlide10,
+  bhairavgarhSlide16: imgBhairavgarhSlide16,
+  botanicalDyes: imgBotanicalDyes,
+  motifTranslation: imgMotifTranslation,
+  slide20Textile: imgSlide20Textile,
+  slide28DyeBath: imgSlide28DyeBath,
+  slide31DSC00823: imgSlide31DSC00823,
+  dyes: "/assets/gdrive/IMG_20250228_145732.jpg", // Natural dye heating vats & cauldrons
+  apparel: "/assets/gdrive/DSC00823.jpeg", // Studio capture of prototype garment
+  saree: "/assets/gdrive/IMG_8699.JPG", // Hand-printed Batik yardage / saree drape
+  kshipra: "/assets/gdrive/IMG_20250728_122413.jpg", // Authentic Kshipra river landscape & ghats
+  mahakaal: "/assets/gdrive/IMG_20250728_122424.jpg", // Historic sacred architecture / temple in Ujjain
+  pdf: "/assets/aistudio/final_5623be0e.pdf", // User's thesis PDF
+
+  // 10 Physical Prototypes from Google Drive
+  kaftan: "/assets/gdrive/DSC00823.jpeg", // 01. Kaftan (Madder Root)
+  jacket: "/assets/gdrive/IMG_8499.JPG", // 02. Men's Jacket (Marigold Ochre)
+  jacketDetail: "/assets/gdrive/IMG_8727.JPG", // Detail shot of jacket fabric / print
+  shirt: "/assets/gdrive/IMG_8458.JPG", // 03. Men's Shirt (Natural Indigo)
+  shirtKid: "/assets/gdrive/IMG_8487.JPG", // Kid's Shirt (Natural Indigo stripes)
+  sareeDrape: "/assets/gdrive/IMG_8699.JPG", // 04. Saree / Yardage (Catechu Brown)
+  tableRunner: "/assets/gdrive/IMG_8746.JPG", // 05. Table Runner & Bedsheets (Iron + Jaggery)
+  fileCover: "/assets/gdrive/IMG_8515.JPG", // 06. File Cover (Pomegranate Peel)
+  pillowCover: "/assets/gdrive/IMG_8769.JPG", // 07. Pillow Cover (Alkanet Root)
+  toteBag: "/assets/gdrive/IMG_8808.JPG", // 08. Canvas Tote Bag (Turmeric Rhizome)
+  goggleCover: "/assets/gdrive/IMG_8787.JPG", // 09. Goggle Cover (Henna Leaf)
+  diaryCover: "/assets/gdrive/IMG_8557.JPG", // 10. Diary Cover (Babool Bark)
+
+  // Authentic Workshop, Fieldwork & Process Documentation from Google Drive
+  artisanHands: "/assets/gdrive/IMG_20250722_142329.jpg", // Close-up of artisan hands waxing/printing
+  artisanPrinting: "/assets/gdrive/IMG_20250728_132609.jpg", // Artisan applying wooden stamp with molten wax
+  woodblockCarved: "/assets/gdrive/IMG_20250728_134009.jpg", // Carved woodblocks and printed textiles
+  tools: "/assets/gdrive/IMG_20250722_143221.jpg", // Bhairavgarh tools, stove & wax pots
+  dyePreparation: "/assets/gdrive/IMG_20250722_143516.jpg", // Plant extract & vat preparation
+  villageStreet: "/assets/gdrive/IMG_20250728_122351.jpg", // Bhairavgarh artisan quarter
+  riverGhats: "/assets/gdrive/IMG_20250728_122431.jpg", // Kshipra river steps & washing waters
+  vatDyeing: "/assets/gdrive/IMG_20250228_155625.jpg", // Immersion in natural color vat
+  washingFabric: "/assets/gdrive/IMG_20250228_155627.jpg", // River washing / post-dye rinse
+  dewaxingBoil: "/assets/gdrive/IMG_20250228_155650.jpg", // Dewaxing in boiling caldron
+  rawBotanicals: "/assets/gdrive/IMG_20250227_133938.jpg", // Natural raw dye ingredients & mortars
+  fabricDrying: "/assets/gdrive/IMG_20250227_162345.jpg", // Open-air fabric drying in Malwa sun
+  dryingLines: "/assets/gdrive/IMG_20250227_162307.jpg", // Hanging fabric lines in workshop
+  workshopStudio: "/assets/gdrive/IMG_20250728_134707.jpg" // Badwala family workshop interior
 };
 
 export interface SlideData {
@@ -68,7 +119,7 @@ export const SLIDES_DATA: SlideData[] = [
     ],
     keyInsight: "Craft is not merely an object; it is the living archive of an entire community's memory and relationship with nature.",
     speakerNotes: "Every craft has a story. In Bhairavgarh, that story is etched in teak wood blocks, heated beeswax, and the waters of the Kshipra.",
-    image: IMAGES.artisan,
+    image: IMAGES.storyCraft,
     accentColor: "#A3704C"
   },
   {
@@ -86,7 +137,7 @@ export const SLIDES_DATA: SlideData[] = [
     ],
     keyInsight: "Revival cannot be dictated from an external laboratory. It must be built upon the artisans' existing toolsets and lived memory.",
     speakerNotes: "This project originated in the living rooms and workshops of the Badwala family. Listening to their memories revealed the exact window where natural dyes could be reintroduced.",
-    image: IMAGES.kshipra,
+    image: IMAGES.researchFocus,
     accentColor: "#854D0E"
   },
   {
@@ -143,7 +194,7 @@ export const SLIDES_DATA: SlideData[] = [
     ],
     keyInsight: "Bhairavgarh developed as a satellite artisan sanctuary where ritual purity and industrial river water coexisted.",
     speakerNotes: "Slide 6 grounds us in Ujjain's sacred landscape: the city of Mahakal and Kalbhairav, where Bhairavgarh sits 12 kilometers downstream along the Kshipra.",
-    image: IMAGES.mahakaal,
+    image: IMAGES.ujjainKshipraRiver,
     accentColor: "#A44226"
   },
   {
@@ -161,7 +212,7 @@ export const SLIDES_DATA: SlideData[] = [
     ],
     keyInsight: "When Bhairavgarh abandoned its natural dyes and unique identity to chase cheap modern markets, it lost both its margins and its cultural moat.",
     speakerNotes: "The historical tragedy: once famed for natural madder and iron printing, post-1950s synthetic mill competition collapsed the local printing ecosystem.",
-    image: IMAGES.kshipra,
+    image: IMAGES.bhairavgarhSlide7,
     accentColor: "#C2410C",
     sourceCitation: "Quoting 'Saris of India' and field oral histories."
   },
@@ -202,7 +253,7 @@ export const SLIDES_DATA: SlideData[] = [
     ],
     keyInsight: "Craft knowledge in Bhairavgarh is not codified in textbooks; it is held in family muscle memory and generational observation.",
     speakerNotes: "The Chhipa caste: dyers and printers whose name originates from the Hindi verb 'chhapna'. They brought 400 years of block-carving and dyeing mastery to Ujjain.",
-    image: IMAGES.artisan,
+    image: IMAGES.chhipaArtisan,
     accentColor: "#A3704C"
   },
   {
@@ -221,7 +272,7 @@ export const SLIDES_DATA: SlideData[] = [
     ],
     keyInsight: "The three printing clusters of MP are not isolated competitors; they are kin lineages connected by water and shared dye secrets.",
     speakerNotes: "Artisans followed the water. Crucially, research shows Bagh printers originally learned alizarin and indigo dyeing from Bhairavgarh artisans.",
-    image: IMAGES.kshipra,
+    image: IMAGES.riverCraftSlide10,
     accentColor: "#2A4B62",
     sourceCitation: "Thesis Ch. 1 and 2; R. Nema (2019)."
   },
@@ -344,7 +395,7 @@ export const SLIDES_DATA: SlideData[] = [
     ],
     keyInsight: "The 2019 census reveals extreme vulnerability: only 2 master artisans still know how to handle the tzanting pen.",
     speakerNotes: "The 2019 artisan census: most do block batik, 6 to 8 do kalamkari, 4 to 5 do screen batik, and only 2 elderly artisans still master the tzanting pen.",
-    image: IMAGES.artisan,
+    image: IMAGES.bhairavgarhSlide16,
     accentColor: "#A3704C",
     sourceCitation: "Techniques in use, documented in 2019 thesis fieldwork."
   },
@@ -365,7 +416,7 @@ export const SLIDES_DATA: SlideData[] = [
     ],
     keyInsight: "The damp sand printing table is a unique Malwa innovation that instantly cools the bottom wax layer, ensuring sharp registration.",
     speakerNotes: "Examine the tools: the coconut-husk capillary stylus, the damp sand printing table that prevents sticking, and the 70:30 paraffin-beeswax blend.",
-    image: IMAGES.artisan,
+    image: IMAGES.botanicalDyes,
     accentColor: "#D97706",
     sourceCitation: "R. Nema (2019) for cluster wax practice; thesis Ch. 2."
   },
@@ -387,6 +438,7 @@ export const SLIDES_DATA: SlideData[] = [
     ],
     keyInsight: "Because each color requires a full wax-dye-rinse cycle, multi-color batik demands precise thermal and registration discipline.",
     speakerNotes: "The classic 6-step workflow: pre-treat, wax, dye, repeat, dewax in boiling water, and final wash and dry.",
+    image: IMAGES.vatDyeing,
     accentColor: "#A44226"
   },
   {
@@ -423,7 +475,7 @@ export const SLIDES_DATA: SlideData[] = [
     ],
     keyInsight: "The transition to synthetic dyes severed the craft's organic connection to local plant chemistry and clean river ecology.",
     speakerNotes: "Comparing then and now: madder, iron black, and indigo replaced by naphthol, indigosol, reactive, and vat dyes.",
-    image: IMAGES.dyes,
+    image: IMAGES.slide20Textile,
     accentColor: "#B91C1C",
     sourceCitation: "Thesis Fig. 4.1: dye room and wash tank, Bhairavgarh."
   },
@@ -446,7 +498,7 @@ export const SLIDES_DATA: SlideData[] = [
     ],
     keyInsight: "The Neela Lugda proves that Bhairavgarh once commanded complex multi-pass natural mordant and resist alchemy.",
     speakerNotes: "The Neela Lugda: harda prep, alum and iron mordants, 7 to 8 days padat rakhna curing, Dhawde alizarin simmer, gar clay resist, and final indigo bath.",
-    image: IMAGES.hero,
+    image: IMAGES.shirt,
     accentColor: "#1E3A5F"
   },
   {
@@ -522,7 +574,7 @@ export const SLIDES_DATA: SlideData[] = [
     ],
     keyInsight: "Bhimbetka gives Bhairavgarh an aesthetic signature that no synthetic mass mill in Gujarat or Rajasthan can replicate.",
     speakerNotes: "Bhimbetka rock art: 2003 UNESCO site in Madhya Pradesh. We ethically adapt selected hunting and dancing figures while respecting ritual boundaries.",
-    image: IMAGES.hero,
+    image: IMAGES.saree,
     accentColor: "#9A3412",
     sourceCitation: "UNESCO World Heritage Centre (2003); thesis Fig. 1.6."
   },
@@ -545,6 +597,7 @@ export const SLIDES_DATA: SlideData[] = [
     ],
     keyInsight: "Lines narrower than 1.5mm cause molten wax to cool before penetrating handloom weave; stylization balances art and physics.",
     speakerNotes: "The 4-step translation: deconstruct line quality, stylize for molten wax flow, prototype with Chhipa carvers, and validate with design peers.",
+    image: IMAGES.motifTranslation,
     accentColor: "#B45309",
     sourceCitation: "Thesis Fig. 1.7: Selected visual elements from Bhimbetka rock paintings for motif development."
   },
@@ -595,6 +648,7 @@ export const SLIDES_DATA: SlideData[] = [
     ],
     keyInsight: "At 22L per cycle, the natural process cuts water consumption by 68% compared to synthetic dyeing lines.",
     speakerNotes: "The standardized recipe: 50g alum in 7L water at 60 degrees, 22 liters total water per cycle, and dewaxing in rolling boiling water.",
+    image: IMAGES.slide28DyeBath,
     accentColor: "#059669"
   },
   {
@@ -665,7 +719,7 @@ export const SLIDES_DATA: SlideData[] = [
     ],
     keyInsight: "Every craft has a story. This one is still being written.",
     speakerNotes: "The road ahead in five steps: document knowledge, scale tested natural dyes, build Bhimbetka identity, center artisans, and activate the market. Every craft has a story—this one is still being written.",
-    image: IMAGES.apparel,
+    image: IMAGES.slide31DSC00823,
     accentColor: "#A44226"
   },
   {
@@ -722,19 +776,20 @@ export interface ProductCollectionItem {
   colorName: string;
   category: "Apparel" | "Home Furnishing" | "Accessories" | "Stationery";
   description: string;
+  image: string;
 }
 
 export const TEN_PRODUCTS_DATA: ProductCollectionItem[] = [
-  { id: "p1", name: "Kaftan", dye: "Madder Root", dyeScientific: "Rubia cordifolia (Manjistha)", colorHex: "#A44226", colorName: "Crimson / Brick Red", category: "Apparel", description: "Flowing resort silhouette featuring stylized Bhimbetka dancing figures." },
-  { id: "p2", name: "Men's Jacket", dye: "Marigold Petals", dyeScientific: "Tagetes erecta (Temple Upcycled)", colorHex: "#D97706", colorName: "Mustard / Warm Ochre", category: "Apparel", description: "Structured handloom khadi jacket with prehistoric wild bison motifs." },
-  { id: "p3", name: "Men's & Kid's Shirt", dye: "Natural Indigo", dyeScientific: "Indigofera tinctoria", colorHex: "#1E3A5F", colorName: "Cobalt to Navy", category: "Apparel", description: "Relaxed breathable shirts dyed in natural fermented indigo vats." },
-  { id: "p4", name: "Saree", dye: "Catechu (Cutch)", dyeScientific: "Senegalia catechu", colorHex: "#4A2810", colorName: "Deep Chocolate Brown", category: "Apparel", description: "Handspun Chanderi silk-cotton drape with continuous procession border." },
-  { id: "p5", name: "Table Runner & Bedsheets", dye: "Iron + Jaggery", dyeScientific: "Syahi Iron Acetate Ferment", colorHex: "#262626", colorName: "Charcoal / Slate Black", category: "Home Furnishing", description: "Architectural dining runner with prehistoric geometric rock petroglyphs." },
-  { id: "p6", name: "File Cover", dye: "Pomegranate Peel", dyeScientific: "Punica granatum", colorHex: "#656D4A", colorName: "Olive / Khaki", category: "Stationery", description: "Handloom document portfolio cover dyed with sun-dried pomegranate rinds." },
-  { id: "p7", name: "Pillow Cover", dye: "Alkanet Root", dyeScientific: "Alkanna tinctoria", colorHex: "#722F37", colorName: "Ruby / Lavender", category: "Home Furnishing", description: "Comfortable accent cushion featuring Bhimbetka animal border registers." },
-  { id: "p8", name: "Canvas Tote Bag", dye: "Turmeric Rhizome", dyeScientific: "Curcuma longa", colorHex: "#E09F3E", colorName: "Solar Yellow", category: "Accessories", description: "Heavy organic cotton carryall bag dyed in natural turmeric bath." },
-  { id: "p9", name: "Goggle Cover", dye: "Henna Leaf", dyeScientific: "Lawsonia inermis", colorHex: "#7F5539", colorName: "Olive Brown / Bronze", category: "Accessories", description: "Padded protective eyewear case featuring geometric rock engravings." },
-  { id: "p10", name: "Diary Cover", dye: "Babool Bark", dyeScientific: "Acacia nilotica", colorHex: "#8C5835", colorName: "Earthy Tan", category: "Stationery", description: "Hand-stitched notebook cover with traditional buta motifs." }
+  { id: "p1", name: "Kaftan", dye: "Madder Root", dyeScientific: "Rubia cordifolia (Manjistha)", colorHex: "#A44226", colorName: "Crimson / Brick Red", category: "Apparel", description: "Flowing resort silhouette featuring stylized Bhimbetka dancing figures.", image: IMAGES.kaftan },
+  { id: "p2", name: "Men's Jacket", dye: "Marigold Petals", dyeScientific: "Tagetes erecta (Temple Upcycled)", colorHex: "#D97706", colorName: "Mustard / Warm Ochre", category: "Apparel", description: "Structured handloom khadi jacket with prehistoric wild bison motifs.", image: IMAGES.jacket },
+  { id: "p3", name: "Men's & Kid's Shirt", dye: "Natural Indigo", dyeScientific: "Indigofera tinctoria", colorHex: "#1E3A5F", colorName: "Cobalt to Navy", category: "Apparel", description: "Relaxed breathable shirts dyed in natural fermented indigo vats.", image: IMAGES.shirt },
+  { id: "p4", name: "Saree", dye: "Catechu (Cutch)", dyeScientific: "Senegalia catechu", colorHex: "#4A2810", colorName: "Deep Chocolate Brown", category: "Apparel", description: "Handspun Chanderi silk-cotton drape with continuous procession border.", image: IMAGES.sareeDrape },
+  { id: "p5", name: "Table Runner & Bedsheets", dye: "Iron + Jaggery", dyeScientific: "Syahi Iron Acetate Ferment", colorHex: "#262626", colorName: "Charcoal / Slate Black", category: "Home Furnishing", description: "Architectural dining runner with prehistoric geometric rock petroglyphs.", image: IMAGES.tableRunner },
+  { id: "p6", name: "File Cover", dye: "Pomegranate Peel", dyeScientific: "Punica granatum", colorHex: "#656D4A", colorName: "Olive / Khaki", category: "Stationery", description: "Handloom document portfolio cover dyed with sun-dried pomegranate rinds.", image: IMAGES.fileCover },
+  { id: "p7", name: "Pillow Cover", dye: "Alkanet Root", dyeScientific: "Alkanna tinctoria", colorHex: "#722F37", colorName: "Ruby / Lavender", category: "Home Furnishing", description: "Comfortable accent cushion featuring Bhimbetka animal border registers.", image: IMAGES.pillowCover },
+  { id: "p8", name: "Canvas Tote Bag", dye: "Turmeric Rhizome", dyeScientific: "Curcuma longa", colorHex: "#E09F3E", colorName: "Solar Yellow", category: "Accessories", description: "Heavy organic cotton carryall bag dyed in natural turmeric bath.", image: IMAGES.toteBag },
+  { id: "p9", name: "Goggle Cover", dye: "Henna Leaf", dyeScientific: "Lawsonia inermis", colorHex: "#7F5539", colorName: "Olive Brown / Bronze", category: "Accessories", description: "Padded protective eyewear case featuring geometric rock engravings.", image: IMAGES.goggleCover },
+  { id: "p10", name: "Diary Cover", dye: "Babool Bark", dyeScientific: "Acacia nilotica", colorHex: "#8C5835", colorName: "Earthy Tan", category: "Stationery", description: "Hand-stitched notebook cover with traditional buta motifs.", image: IMAGES.diaryCover }
 ];
 
 export const SSM_TEX_LAB_DATA = {
@@ -908,7 +963,7 @@ export const DYE_MATRIX_DATA: DyeMatrixEntry[] = [
 export interface PrototypeItem {
   id: string;
   name: string;
-  category: "Apparel" | "Heritage Textiles";
+  category: "Apparel" | "Home Furnishing" | "Accessories" | "Stationery";
   dyeSource: string;
   mordant: string;
   motifSource: string;
@@ -916,6 +971,7 @@ export interface PrototypeItem {
   description: string;
   artisanHours: number;
   image: string;
+  secondaryImage?: string;
   hotspots: {
     x: number;
     y: number;
@@ -927,15 +983,15 @@ export interface PrototypeItem {
 export const PROTOTYPES_DATA: PrototypeItem[] = [
   {
     id: "proto-kaftan",
-    name: "Kaftan (Madder Root)",
+    name: "01. Kaftan (Madder Root)",
     category: "Apparel",
     dyeSource: "Madder Root / Manjistha (Rubia cordifolia)",
     mordant: "50g Alum in 7L water at 60°C",
-    motifSource: "Bhimbetka Cave Rock Art (Dancing Figures)",
+    motifSource: "Bhimbetka Prehistoric Dancing Figures",
     fabricBase: "100% Handloom Cotton-Silk (60s count)",
-    description: "Flowing resort silhouette featuring stylized prehistoric dancing figures along the neckline and hem. Hand-stamped in pure beeswax on damp sand table.",
+    description: "Flowing resort silhouette featuring stylized prehistoric dancing figures along the neckline and hem. Hand-stamped in pure beeswax over a damp sand table.",
     artisanHours: 42,
-    image: IMAGES.apparel,
+    image: IMAGES.kaftan,
     hotspots: [
       {
         x: 48,
@@ -952,22 +1008,23 @@ export const PROTOTYPES_DATA: PrototypeItem[] = [
       {
         x: 43,
         y: 75,
-        title: "Bhimbetka Motifs",
+        title: "Bhimbetka Dancing Motifs",
         detail: "Deconstructed from Upper Paleolithic cave art pictographs, adapted for teak block carving."
       }
     ]
   },
   {
     id: "proto-jacket",
-    name: "Men's Jacket (Marigold)",
+    name: "02. Men's Jacket (Marigold)",
     category: "Apparel",
-    dyeSource: "Upcycled Temple Marigold Flower Petals",
+    dyeSource: "Upcycled Temple Marigold Flower Petals (Tagetes erecta)",
     mordant: "Alum Pre-mordant + Hard Kshipra Well Water",
     motifSource: "Bhimbetka Animal Profiles (Wild Bison & Antelope)",
     fabricBase: "Structured Handloom Khadi Cotton (10 oz)",
-    description: "Tailored unstructured jacket with white resist silhouettes of prehistoric bison and deer charging across the breast and pockets.",
+    description: "Tailored unstructured Nehru jacket with white resist silhouettes of prehistoric bison and deer charging across the breast and pockets.",
     artisanHours: 36,
-    image: IMAGES.apparel,
+    image: IMAGES.jacket,
+    secondaryImage: IMAGES.jacketDetail,
     hotspots: [
       {
         x: 56,
@@ -984,16 +1041,43 @@ export const PROTOTYPES_DATA: PrototypeItem[] = [
     ]
   },
   {
+    id: "proto-shirt",
+    name: "03. Men's & Kid's Shirt (Natural Indigo)",
+    category: "Apparel",
+    dyeSource: "Natural Fermented Indigo Leaf Cake (Indigofera tinctoria)",
+    mordant: "Slaked Lime & Jaggery Anaerobic Reduction Vat",
+    motifSource: "Bhimbetka Chevron & Kinetic Wave Petroglyphs",
+    fabricBase: "Breathable Handloom Cotton (80s count)",
+    description: "Contemporary relaxed button-down shirts featuring geometric chevron and rhythmic wave block prints dyed in living fermented indigo vats.",
+    artisanHours: 28,
+    image: IMAGES.shirt,
+    secondaryImage: IMAGES.shirtKid,
+    hotspots: [
+      {
+        x: 50,
+        y: 38,
+        title: "Natural Fermented Indigo",
+        detail: "Zero synthetic indigo; reduced with slaked lime and jaggery, developing cobalt to deep navy upon atmospheric oxidation."
+      },
+      {
+        x: 45,
+        y: 62,
+        title: "Chevron Block Pattern",
+        detail: "Rhythmic wave petroglyph patterns hand-stamped by hereditary Badwala family artisans."
+      }
+    ]
+  },
+  {
     id: "proto-saree",
-    name: "Saree (Catechu Cutch)",
-    category: "Heritage Textiles",
-    dyeSource: "Catechu Heartwood Resin (Khair)",
+    name: "04. Saree (Catechu Cutch)",
+    category: "Apparel",
+    dyeSource: "Catechu Heartwood Resin / Khair (Senegalia catechu)",
     mordant: "Syahi Fermented Scrap Iron Liquor",
     motifSource: "Bhimbetka Procession Borders",
     fabricBase: "Handspun Chanderi Cotton-Silk Weave (5.5 meters)",
     description: "A monumental heritage drape bearing a continuous narrative border depicting hunters, ceremonial drummers, and elephants from prehistoric cave walls.",
     artisanHours: 96,
-    image: IMAGES.saree,
+    image: IMAGES.sareeDrape,
     hotspots: [
       {
         x: 45,
@@ -1011,27 +1095,157 @@ export const PROTOTYPES_DATA: PrototypeItem[] = [
   },
   {
     id: "proto-runner",
-    name: "Table Runner & Bedsheets (Iron Liquor)",
-    category: "Heritage Textiles",
-    dyeSource: "Iron Acetate + Jaggery Molasses (Syahi)",
+    name: "05. Table Runner & Bedsheets (Iron + Jaggery)",
+    category: "Home Furnishing",
+    dyeSource: "Iron Acetate + Jaggery Molasses (Syahi) & Madder",
     mordant: "Direct Iron Brush Strike over Acacia Tannin Base",
     motifSource: "Bhimbetka Geometric Rock Petroglyphs",
     fabricBase: "Heavy Organic Handloom Canvas (320 GSM)",
-    description: "Architectural home textile featuring intricate geometric rock engravings and petroglyphic grids in deep matte charcoal black.",
+    description: "Architectural home textile featuring intricate geometric rock engravings, floral paisleys, and petroglyphic grids in deep matte charcoal black and terracotta.",
     artisanHours: 24,
-    image: IMAGES.saree,
+    image: IMAGES.tableRunner,
     hotspots: [
       {
         x: 75,
         y: 62,
         title: "Geometric Rock Petroglyphs",
-        detail: "Abstract rectilinear symbols found in the deepest Bhimbetka shelters."
+        detail: "Abstract rectilinear symbols and rhythmic borders found in the deepest Bhimbetka shelters."
       },
       {
         x: 82,
         y: 45,
         title: "Syahi Iron Liquor Ferment",
         detail: "Formulated with rusted nail scrap, jaggery molasses, and fermented buttermilk."
+      }
+    ]
+  },
+  {
+    id: "proto-file-cover",
+    name: "06. File Cover (Pomegranate Peel)",
+    category: "Stationery",
+    dyeSource: "Dried Pomegranate Fruit Rinds (Punica granatum)",
+    mordant: "Alum Pre-mordant + Mild Iron Strike",
+    motifSource: "Surviving Bhairavgarh Buta & Petroglyph Borders",
+    fabricBase: "Reinforced Handloom Canvas with Eco-Board Lining",
+    description: "Sustainable document portfolio folder in earthy olive khaki, hand-printed with archival heritage blocks for contemporary office and creative workspaces.",
+    artisanHours: 16,
+    image: IMAGES.fileCover,
+    hotspots: [
+      {
+        x: 52,
+        y: 45,
+        title: "Pomegranate Rind Tannins",
+        detail: "High-tannin botanical liquor yielding lightfast olive khaki tones without synthetic mordants."
+      },
+      {
+        x: 58,
+        y: 68,
+        title: "Document Folder Architecture",
+        detail: "Reinforced hardback spine designed to safely carry A4 portfolios, sketches, and notes."
+      }
+    ]
+  },
+  {
+    id: "proto-pillow-cover",
+    name: "07. Pillow Cover (Alkanet Root)",
+    category: "Home Furnishing",
+    dyeSource: "Alkanet Root / Ratanjot (Alkanna tinctoria)",
+    mordant: "Alum + Natural Mineral Salts",
+    motifSource: "Bhimbetka Dancing Figures & Floral Enclosure",
+    fabricBase: "Pure Handloom Cotton (220 GSM)",
+    description: "Square accent cushion cover dyed in warm ruby-crimson, spotlighting dynamic prehistoric figures framed by delicate wax-crackle borders.",
+    artisanHours: 18,
+    image: IMAGES.pillowCover,
+    hotspots: [
+      {
+        x: 50,
+        y: 48,
+        title: "Alkanet Ruby-Crimson Hue",
+        detail: "Natural alkannin pigment delivering ruby-crimson and lavender-pink tones with natural crackle lines."
+      },
+      {
+        x: 50,
+        y: 32,
+        title: "Central Dancing Motif",
+        detail: "Iconic communal stick-figure dance adapted from Bhimbetka rock paintings."
+      }
+    ]
+  },
+  {
+    id: "proto-tote-bag",
+    name: "08. Canvas Tote Bag (Turmeric Rhizome)",
+    category: "Accessories",
+    dyeSource: "Curcuma Longa Rhizome (Turmeric)",
+    mordant: "Double Alum Soak + Acidic Citrus Rinse",
+    motifSource: "Bhimbetka Animal Processions & Floral Repeats",
+    fabricBase: "Heavy Organic Cotton Duck Canvas (360 GSM)",
+    description: "Durable daily carryall bag in luminous solar yellow, fitted with reinforced cotton webbing straps and hand-printed animal motifs.",
+    artisanHours: 14,
+    image: IMAGES.toteBag,
+    hotspots: [
+      {
+        x: 50,
+        y: 48,
+        title: "Solar Turmeric Dye",
+        detail: "Cold-dye bath with fixed alum mordant yielding bright, cheerful golden yellow."
+      },
+      {
+        x: 52,
+        y: 72,
+        title: "Heavy Canvas Webbing",
+        detail: "Reinforced box-X stitched handles designed for heavy daily grocery and work essentials."
+      }
+    ]
+  },
+  {
+    id: "proto-goggle-cover",
+    name: "09. Goggle Cover (Henna Leaf)",
+    category: "Accessories",
+    dyeSource: "Lawsonia Inermis Dried Leaves (Henna)",
+    mordant: "Iron-Assisted Tannin Mordant",
+    motifSource: "Geometric Rock Engravings & Chevrons",
+    fabricBase: "Padded Handloom Cotton with Soft Velvet Lining",
+    description: "Semi-circular protective eyewear pouch in earthy bronze-olive, featuring full zipper enclosure and delicate wax-resist geometric engraving.",
+    artisanHours: 12,
+    image: IMAGES.goggleCover,
+    hotspots: [
+      {
+        x: 50,
+        y: 48,
+        title: "Henna Leaf Bronze",
+        detail: "Lawsone molecules binding to cellulose fibers producing rich, earthy bronze-olive tones."
+      },
+      {
+        x: 55,
+        y: 35,
+        title: "Curved Zip Closure",
+        detail: "Ergonomic protective pouch padded with natural cotton fleece for eyewear protection."
+      }
+    ]
+  },
+  {
+    id: "proto-diary-cover",
+    name: "10. Diary Cover (Babool Bark)",
+    category: "Stationery",
+    dyeSource: "Babool Acacia Tree Bark (Acacia nilotica)",
+    mordant: "Alum Pre-mordant + River Silt Water",
+    motifSource: "Traditional Bhairavgadi Buta & Floral Repeat",
+    fabricBase: "Handloom Cotton-Linen with Recycled Handmade Paper",
+    description: "Hand-bound journal jacket in warm tan, stamped with the iconic Bhairavgadi floral buta and paired with eco-friendly unruled sketch paper.",
+    artisanHours: 15,
+    image: IMAGES.diaryCover,
+    hotspots: [
+      {
+        x: 50,
+        y: 45,
+        title: "Babool Bark Earth Tannin",
+        detail: "Sustainable bark harvested from local Acacia trees, creating earthy warm tan."
+      },
+      {
+        x: 52,
+        y: 70,
+        title: "Bhairavgadi Buta Repeat",
+        detail: "One of the 60 documented surviving traditional woodblocks from Bhairavgarh."
       }
     ]
   }
